@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>CodeClub Arena — Join</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root {
+    --bg: var(--tg-theme-bg-color, #0b0f1a);
+    --card: var(--tg-theme-secondary-bg-color, #161b2e);
+    --text: var(--tg-theme-text-color, #f2f4f8);
+    --hint: var(--tg-theme-hint-color, #8b93a7);
+    --accent: var(--tg-theme-button-color, #a855f7);
+    --accent-text: var(--tg-theme-button-text-color, #fff);
+    --danger: #ef4444;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.4 Inter, system-ui, sans-serif; padding: 16px; padding-bottom: 32px; }
+  h1 { font-size: 22px; margin: 8px 0 4px; }
+  p.sub { color: var(--hint); margin: 0 0 16px; }
+  form { display: grid; gap: 16px; }
+  label { display: grid; gap: 6px; font-weight: 600; font-size: 14px; }
+  input[type=text], select {
+    width: 100%; min-height: 48px; padding: 0 14px; border-radius: 12px; border: 1px solid #2a3150;
+    background: var(--card); color: var(--text); font-size: 16px;
+  }
+  .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .seg input { position: absolute; opacity: 0; pointer-events: none; }
+  .seg label { margin: 0; }
+  .seg span {
+    display: grid; place-items: center; min-height: 48px; border-radius: 12px; border: 1px solid #2a3150;
+    background: var(--card); font-weight: 600; cursor: pointer;
+  }
+  .seg input:checked + span { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; }
+  .check { display: flex; gap: 10px; align-items: center; font-weight: 500; }
+  .check input { width: 22px; height: 22px; accent-color: var(--accent); }
+  .note { color: var(--hint); font-size: 13px; }
+  button { min-height: 52px; border: 0; border-radius: 14px; background: var(--accent); color: var(--accent-text); font-size: 17px; font-weight: 700; }
+  button:disabled { opacity: .5; }
+  .err { color: var(--danger); font-size: 14px; min-height: 20px; }
+</style>
+</head>
+<body>
+  <h1>Join CodeClub Arena</h1>
+  <p class="sub">Tell us who you are. Takes 20 seconds.</p>
+
+  <form id="f" novalidate>
+    <label>Full name
+      <input id="name" type="text" autocomplete="name" maxlength="60" placeholder="e.g. Sara Alemu" required />
+    </label>
+
+    <label>Batch year (Ethiopian calendar)
+      <select id="year" required></select>
+    </label>
+
+    <div>
+      <div style="font-weight:600;font-size:14px;margin-bottom:6px">Gender</div>
+      <div class="seg">
+        <label><input type="radio" name="gender" value="male" /><span>Male</span></label>
+        <label><input type="radio" name="gender" value="female" /><span>Female</span></label>
+      </div>
+      <p class="note">You will only see and be seen by members of the same gender. This cannot be changed later by you.</p>
+    </div>
+
+    <label class="check"><input id="show" type="checkbox" checked /> Show my name to club members</label>
+    <label class="check"><input id="dm" type="checkbox" /> Allow club members to message me</label>
+
+    <div class="err" id="err" role="alert"></div>
+    <button id="go" type="submit">Join the club</button>
+  </form>
+
+<script>
+  const tg = window.Telegram && window.Telegram.WebApp;
+  if (tg) { tg.ready(); tg.expand(); }
+  const token = new URLSearchParams(location.search).get('t') || '';
+  const $ = (id) => document.getElementById(id);
+  const err = (m) => { $('err').textContent = m || ''; };
+
+  const sel = $('year');
+  sel.innerHTML = '<option value="">Select…</option>';
+  fetch('/api/batch-years')
+    .then((r) => r.json())
+    .then(({ min, max }) => {
+      for (let y = max; y >= min; y--) {
+        const o = document.createElement('option');
+        o.value = String(y);
+        o.textContent = y + ' E.C.';
+        sel.append(o);
+      }
+    })
+    .catch(() => err('Could not load batch years. Close and reopen this page.'));
+
+  if (!tg || !tg.initData || !token) {
+    err('Open this page from the Telegram bot after scanning the club QR code.');
+    $('go').disabled = true;
+  }
+
+  $('f').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    err('');
+    const fullName = $('name').value.trim();
+    const batchYear = Number($('year').value);
+    const g = document.querySelector('input[name=gender]:checked');
+    if (fullName.length < 2) return err('Please enter your full name.');
+    if (!batchYear) return err('Please choose your batch year.');
+    if (!g) return err('Please choose your gender.');
+
+    $('go').disabled = true;
+    try {
+      const res = await fetch('/api/signup', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          initData: tg.initData, token, fullName, batchYear,
+          gender: g.value, showName: $('show').checked, allowDm: $('dm').checked,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) { err(data.error || 'Something went wrong.'); $('go').disabled = false; return; }
+      tg.close();
+    } catch {
+      err('Network error. Check your connection and try again.');
+      $('go').disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
