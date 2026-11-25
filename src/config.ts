@@ -28,7 +28,7 @@ const schema = z.object({
   BATCH_YEARS: z
     .string()
     .regex(/^\d{4}-\d{4}$/, 'BATCH_YEARS must look like 2005-2014')
-    .default('2005-2014')
+    .default('2014-2019')
     .transform((v) => {
       const [a, b] = v.split('-').map(Number) as [number, number];
       return { min: Math.min(a, b), max: Math.max(a, b) };
