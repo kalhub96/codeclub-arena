@@ -27,7 +27,7 @@ const schema = z.object({
   // Batch years in the Ethiopian calendar, "oldest-newest". The newest is the latest batch shown at sign-up.
   BATCH_YEARS: z
     .string()
-    .regex(/^\d{4}-\d{4}$/, 'BATCH_YEARS must look like 2005-2014')
+    .regex(/^\d{4}-\d{4}$/, 'BATCH_YEARS must look like 2014-2019')
     .default('2014-2019')
     .transform((v) => {
       const [a, b] = v.split('-').map(Number) as [number, number];

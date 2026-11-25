@@ -1,4 +1,5 @@
 import { createBot } from './bot.js';
+import { BOT_COMMANDS } from './commands.js';
 import { config } from './config.js';
 import { sql } from './db/client.js';
 import { runMigrations } from './db/migrate.js';
@@ -8,15 +9,7 @@ await runMigrations();
 
 const bot = createBot();
 await bot.init();
-await bot.api.setMyCommands([
-  { command: 'context', description: 'Choose what to learn' },
-  { command: 'next', description: 'Get a question' },
-  { command: 'progress', description: 'Your badge, XP, streak' },
-  { command: 'behind', description: 'Club members behind you' },
-  { command: 'leaderboard', description: 'Top students' },
-  { command: 'friends', description: 'Your friends and requests' },
-  { command: 'help', description: 'How the game works' },
-]);
+await bot.api.setMyCommands(BOT_COMMANDS);
 
 const app = await createServer(bot);
 await app.listen({ port: config.PORT, host: '0.0.0.0' });
