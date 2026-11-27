@@ -1,4 +1,7 @@
 {
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "npm install",
   "rewrites": [{ "source": "/(.*)", "destination": "/api" }],
   "functions": { "api/index.ts": { "includeFiles": "webapp/**", "maxDuration": 30 } }
 }
