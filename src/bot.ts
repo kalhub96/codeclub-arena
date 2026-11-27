@@ -91,8 +91,42 @@ export function createBot() {
       .where(and(eq(students.telegramId, tgId), eq(students.status, 'pending')))
       .returning();
     if (!s) return ctx.reply('No pending student with that ID.');
-    await bot.api.sendMessage(tgId, '✅ You are approved! Use /context to pick what to learn.').catch(() => {});
+    await bot.api.sendMessage(tgId, '✅ You are approved! Use /context to pick what to learn.', { reply_markup: mainMenu }).catch(() => {});
     return ctx.reply(`Approved ${s.fullName}.`);
+  });
+
+  // Pending sign-ups (people who joined without the QR code): approve or reject with buttons.
+  const pendingCard = (s: Student) =>
+    `${esc(s.fullName)} · batch ${s.batchYear} E.C. · ${s.gender === 'male' ? 'M' : 'F'}${s.username ? ` · @${esc(s.username)}` : ''}\nID: <code>${s.telegramId}</code>`;
+  bot.command('pending', async (ctx) => {
+    if (!ctx.from || !(await isAdmin(ctx.from.id))) return;
+    const rows = await db.select().from(students).where(eq(students.status, 'pending')).orderBy(students.createdAt).limit(10);
+    if (!rows.length) return ctx.reply('No pending sign-ups.');
+    for (const s of rows) {
+      await ctx.reply(pendingCard(s), {
+        ...H,
+        reply_markup: new InlineKeyboard().text('✅ Approve', `ap:${s.id}`).text('❌ Reject', `rj:${s.id}`),
+      });
+    }
+  });
+  bot.callbackQuery(/^(ap|rj):(\d+)$/, async (ctx) => {
+    if (!(await isAdmin(ctx.from.id))) return ctx.answerCallbackQuery();
+    const id = Number(ctx.match[2]);
+    const [s] = await db.select().from(students).where(and(eq(students.id, id), eq(students.status, 'pending')));
+    if (!s) {
+      await ctx.answerCallbackQuery({ text: 'Already handled.' });
+      return ctx.editMessageReplyMarkup().catch(() => {});
+    }
+    if (ctx.match[1] === 'ap') {
+      await db.update(students).set({ status: 'active' }).where(eq(students.id, id));
+      await bot.api.sendMessage(s.telegramId, '✅ You are approved! Use /context to pick what to learn.', { reply_markup: mainMenu }).catch(() => {});
+      await ctx.answerCallbackQuery({ text: 'Approved' });
+      return ctx.editMessageText(`✅ Approved: ${esc(s.fullName)}`, H).catch(() => {});
+    }
+    await db.delete(students).where(eq(students.id, id)); // pending students have no activity; they may sign up again
+    await bot.api.sendMessage(s.telegramId, 'Your sign-up was not approved. Ask a club admin, or scan the club QR code.').catch(() => {});
+    await ctx.answerCallbackQuery({ text: 'Rejected' });
+    return ctx.editMessageText(`❌ Rejected: ${esc(s.fullName)}`, H).catch(() => {});
   });
 
   bot.command('stats', async (ctx) => {
@@ -118,7 +152,15 @@ export function createBot() {
     }
     if (s?.status === 'pending') return ctx.reply('Your sign-up is waiting for admin approval. Hang tight!');
     if (s?.status === 'banned') return;
-    if (!payload) return ctx.reply('Scan the club QR code to join.');
+    if (!payload) {
+      if (!config.OPEN_SIGNUP) return ctx.reply('Scan the club QR code to join, or ask an admin for one.');
+      if (!config.PUBLIC_URL) return ctx.reply('Sign-up is not configured yet (PUBLIC_URL missing). Tell an admin.');
+      const open = new InlineKeyboard().webApp('Sign up', `${config.PUBLIC_URL}/signup`);
+      return ctx.reply(
+        'Welcome to CodeClub Arena! Tap below to sign up (name, batch year, gender). An admin approves sign-ups that do not come from the club QR code; with the QR code you get in right away.',
+        { reply_markup: open },
+      );
+    }
 
     const invite = await findValidInvite(payload);
     if (!invite) return ctx.reply('This invite is invalid or expired. Ask an admin for a fresh QR code.');

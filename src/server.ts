@@ -8,6 +8,7 @@ import { config } from './config.js';
 import { db } from './db/client.js';
 import { students } from './db/schema.js';
 import { eq } from 'drizzle-orm';
+import { listAdmins } from './services/admins.js';
 import { consumeInvite, findValidInvite } from './services/invites.js';
 import { cooldown } from './util.js';
 import type { Ctx } from './bot.js';
@@ -17,7 +18,7 @@ import { makeNotify } from './notify.js';
 
 const signupSchema = z.object({
   initData: z.string().min(10),
-  token: z.string().min(20).max(64),
+  token: z.string().min(20).max(64).optional(), // missing = open sign-up (needs admin approval)
   fullName: z.string().trim().min(2).max(60),
   batchYear: z.number().int().min(config.BATCH_YEARS.min).max(config.BATCH_YEARS.max),
   gender: z.enum(['male', 'female']),
@@ -34,6 +35,7 @@ export async function createServer(bot: Bot<Ctx>) {
     setHeaders: (res) => res.setHeader('Cache-Control', 'no-cache'), // always fetch the latest Mini App files
   });
 
+  app.get('/', async () => ({ ok: true, name: 'CodeClub Arena' }));
   app.get('/health', async () => ({ ok: true }));
   app.get('/api/batch-years', async () => config.BATCH_YEARS);
   app.get('/signup', (_req, reply) => reply.sendFile('signup.html'));
@@ -59,17 +61,18 @@ export async function createServer(bot: Bot<Ctx>) {
     if (!user) return reply.code(401).send({ error: 'Could not verify your Telegram account. Reopen sign-up from the bot.' });
     if (!cooldown(user.id, 2000)) return reply.code(429).send({ error: 'Too fast. Try again in a moment.' });
 
-    const invite = await findValidInvite(body.data.token);
-    if (!invite) return reply.code(410).send({ error: 'This invite expired. Ask an admin for a new QR code.' });
+    const invite = body.data.token ? await findValidInvite(body.data.token) : null;
+    if (body.data.token && !invite) return reply.code(410).send({ error: 'This invite expired. Ask an admin for a new QR code.' });
+    if (!invite && !config.OPEN_SIGNUP) return reply.code(403).send({ error: 'Sign-up needs the club QR code. Ask an admin.' });
 
     const [existing] = await db.select({ id: students.id }).from(students).where(eq(students.telegramId, user.id));
     if (existing) return reply.code(409).send({ error: 'You are already registered.' });
 
-    const status = config.REQUIRE_APPROVAL ? 'pending' : 'active';
+    // QR sign-ups are instant (unless REQUIRE_APPROVAL); sign-ups without a QR always wait for an admin.
+    const status = !invite || config.REQUIRE_APPROVAL ? 'pending' : 'active';
     try {
       await db.transaction(async (tx) => {
-        const used = await consumeInvite(tx, invite.id);
-        if (!used) throw new Error('invite_exhausted');
+        if (invite && !(await consumeInvite(tx, invite.id))) throw new Error('invite_exhausted');
         await tx.insert(students).values({
           telegramId: user.id,
           username: user.username ?? null,
@@ -79,7 +82,7 @@ export async function createServer(bot: Bot<Ctx>) {
           status,
           privacyShowName: body.data.showName,
           privacyAllowDm: body.data.allowDm,
-          inviteId: invite.id,
+          inviteId: invite?.id ?? null,
         });
       });
     } catch (e) {
@@ -90,6 +93,13 @@ export async function createServer(bot: Bot<Ctx>) {
       return reply.code(500).send({ error: 'Something went wrong. Try again.' });
     }
 
+    if (status === 'pending') {
+      const text = `🆕 New sign-up waiting: ${body.data.fullName} · batch ${body.data.batchYear} · ${body.data.gender === 'male' ? 'M' : 'F'}\nUse /pending to approve or reject.`;
+      void listAdmins()
+        .then((a) => new Set([...a.owners, ...a.added.map((x) => x.telegramId)]))
+        .then((ids) => Promise.all([...ids].map((id) => bot.api.sendMessage(id, text).catch(() => {}))))
+        .catch(() => {});
+    }
     // Fire-and-forget: the student is already registered, so never block the response on Telegram.
     void bot.api
       .sendMessage(

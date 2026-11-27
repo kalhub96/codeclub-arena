@@ -91,8 +91,8 @@
     })
     .catch(() => err('Could not load batch years. Close and reopen this page.'));
 
-  if (!tg || !tg.initData || !token) {
-    err('Open this page from the Telegram bot after scanning the club QR code.');
+  if (!tg || !tg.initData) {
+    err('Open this page from the Telegram bot (tap Sign up in the bot).');
     $('go').disabled = true;
   }
 
@@ -112,7 +112,7 @@
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
-          initData: tg.initData, token, fullName, batchYear,
+          initData: tg.initData, token: token || undefined, fullName, batchYear,
           gender: g.value, showName: $('show').checked, allowDm: $('dm').checked,
         }),
       });

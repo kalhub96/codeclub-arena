@@ -16,6 +16,7 @@ The same code runs in both. Only `.env` values differ.
 
 ## Deploy on a VPS (launch)
 
+### Handover: who does what (the VPS is run by someone else)
 `.env` holds secrets and is **not in GitHub** (blocked by `.gitignore`). The repo only has `.env.example`, a
 template with no secrets. So the host creates their own `.env` on the server from the values below.
 
@@ -144,8 +145,11 @@ Supabase DB into the VPS database (or start fresh), then follow the VPS steps ab
 ## Admin flow
 1. Message the bot `/qr` → get the club QR image (valid 7 days, 500 uses). `/qr new` revokes old codes.
 2. Students scan it → bot → **Complete sign-up** (Mini App) → game unlocks.
-3. `REQUIRE_APPROVAL=true` puts sign-ups in `pending`; approve with `/approve <telegram_id>`.
-4. `/stats` shows active/pending students and approved question pools.
+3. **Sign-up without the QR code:** anyone who opens the bot and sends `/start` gets a **Sign up** button. Those
+   sign-ups wait as `pending`; admins are notified and use `/pending` (Approve / Reject buttons) or
+   `/approve <telegram_id>`. Set `OPEN_SIGNUP=false` in `.env` to allow QR sign-ups only.
+4. `REQUIRE_APPROVAL=true` also puts QR sign-ups in `pending`.
+5. `/stats` shows active/pending students and approved question pools.
 
 ## Mini App (the game UI)
 Opens inside Telegram at `/app` (button "Open app" in the keyboard, plus the chat Menu button "Play").

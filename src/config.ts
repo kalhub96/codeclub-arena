@@ -23,6 +23,11 @@ const schema = z.object({
     .enum(['true', 'false'])
     .default('false')
     .transform((v) => v === 'true'),
+  // Sign-up without a QR code (someone just opens the bot). They wait in "pending" until an admin approves.
+  OPEN_SIGNUP: z
+    .enum(['true', 'false'])
+    .default('true')
+    .transform((v) => v === 'true'),
   PORT: z.coerce.number().default(3000),
   // Batch years in the Ethiopian calendar, "oldest-newest". The newest is the latest batch shown at sign-up.
   BATCH_YEARS: z
