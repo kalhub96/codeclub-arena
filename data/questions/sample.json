@@ -102,5 +102,2696 @@
     "snippet": "print(type(3))     # <class 'int'>\nprint(type(3.0))   # <class 'float'>\nprint(int(3.9))    # 3 (truncates)",
     "snippet_lang": "python",
     "integration_note": "Check types when reading numbers from files or user input: input() always gives a str, so convert with int() or float()."
+  },
+  {
+    "external_id": "html-v2-01",
+    "language": "HTML",
+    "difficulty": 1,
+    "prompt": "Which tag creates a hyperlink?",
+    "options": [
+      "<a>",
+      "<link>",
+      "<href>",
+      "<url>"
+    ],
+    "answer": "<a>",
+    "hints": [
+      "Its name is one letter.",
+      "It stands for anchor."
+    ],
+    "concept_tip": "The <a> (anchor) element makes links. Its href attribute holds the destination.",
+    "snippet": "<a href=\"https://example.com\">Visit our site</a>",
+    "snippet_lang": "html",
+    "integration_note": "Write descriptive link text, not \"click here\"."
+  },
+  {
+    "external_id": "html-v2-02",
+    "language": "HTML",
+    "difficulty": 1,
+    "prompt": "Which tag creates an unordered (bulleted) list?",
+    "options": [
+      "<ul>",
+      "<ol>",
+      "<li>",
+      "<dl>"
+    ],
+    "answer": "<ul>",
+    "hints": [
+      "Unordered means no numbers.",
+      "<li> is only a single item."
+    ],
+    "concept_tip": "<ul> wraps bullet items; each item is an <li>. Use <ol> for numbered lists.",
+    "snippet": "<ul>\n  <li>HTML</li>\n  <li>CSS</li>\n</ul>",
+    "snippet_lang": "html",
+    "integration_note": "Use lists for menus and steps; they are easy for screen readers."
+  },
+  {
+    "external_id": "html-v2-03",
+    "language": "HTML",
+    "difficulty": 1,
+    "prompt": "Which element creates a single-line text box in a form?",
+    "options": [
+      "<input>",
+      "<textarea>",
+      "<field>",
+      "<text>"
+    ],
+    "answer": "<input>",
+    "hints": [
+      "Its type attribute decides what it looks like.",
+      "<textarea> is for many lines."
+    ],
+    "concept_tip": "<input type=\"text\"> is a one-line field. Other types: email, password, number, date.",
+    "snippet": "<input type=\"text\" name=\"fullName\" />",
+    "snippet_lang": "html",
+    "integration_note": "Always give inputs a name so the form data can be read."
+  },
+  {
+    "external_id": "html-v2-04",
+    "language": "HTML",
+    "difficulty": 2,
+    "prompt": "Which attribute stops a form from being submitted while a field is empty?",
+    "options": [
+      "required",
+      "mandatory",
+      "validate",
+      "must"
+    ],
+    "answer": "required",
+    "hints": [
+      "It is a boolean attribute.",
+      "It is spelled like the English word."
+    ],
+    "concept_tip": "required makes the browser block submit until the field has a value.",
+    "snippet": "<input type=\"email\" name=\"email\" required />",
+    "snippet_lang": "html",
+    "integration_note": "Browser checks help users, but always validate again on the server."
+  },
+  {
+    "external_id": "html-v2-05",
+    "language": "HTML",
+    "difficulty": 2,
+    "prompt": "What does <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> help with?",
+    "options": [
+      "Making pages display properly on phones",
+      "Loading images faster",
+      "Adding keywords for Google",
+      "Linking a CSS file"
+    ],
+    "answer": "Making pages display properly on phones",
+    "hints": [
+      "Think about small screens.",
+      "Without it, phones zoom out the whole page."
+    ],
+    "concept_tip": "The viewport meta tag tells mobile browsers to use the real screen width.",
+    "snippet": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />",
+    "snippet_lang": "html",
+    "integration_note": "Put it in the <head> of every page."
+  },
+  {
+    "external_id": "html-v2-06",
+    "language": "HTML",
+    "difficulty": 2,
+    "prompt": "Which element should hold the main unique content of a page, once per page?",
+    "options": [
+      "<main>",
+      "<section>",
+      "<div>",
+      "<aside>"
+    ],
+    "answer": "<main>",
+    "hints": [
+      "Its name says what it is.",
+      "It should not repeat the header or footer."
+    ],
+    "concept_tip": "<main> marks the central content. Screen readers can jump straight to it.",
+    "snippet": "<body>\n  <header>…</header>\n  <main>\n    <h1>Courses</h1>\n  </main>\n  <footer>…</footer>\n</body>",
+    "snippet_lang": "html",
+    "integration_note": "Use only one <main> per page."
+  },
+  {
+    "external_id": "html-v2-07",
+    "language": "HTML",
+    "difficulty": 3,
+    "prompt": "What does the defer attribute on a <script> tag do?",
+    "options": [
+      "Downloads in parallel and runs after the HTML is parsed",
+      "Runs the script before anything loads",
+      "Stops the script from running",
+      "Loads the script only on phones"
+    ],
+    "answer": "Downloads in parallel and runs after the HTML is parsed",
+    "hints": [
+      "Think about not blocking the page.",
+      "The script waits for the document."
+    ],
+    "concept_tip": "defer keeps scripts from blocking page rendering and keeps their order.",
+    "snippet": "<script src=\"app.js\" defer></script>",
+    "snippet_lang": "html",
+    "integration_note": "Prefer defer over putting scripts at the end of <body>."
+  },
+  {
+    "external_id": "html-v2-08",
+    "language": "HTML",
+    "difficulty": 3,
+    "prompt": "Which attribute connects a <label> to its form control?",
+    "options": [
+      "for",
+      "id",
+      "name",
+      "target"
+    ],
+    "answer": "for",
+    "hints": [
+      "It matches the control's id.",
+      "Clicking the label focuses the input."
+    ],
+    "concept_tip": "label for=\"x\" links to the element with id=\"x\". It improves accessibility and click area.",
+    "snippet": "<label for=\"email\">Email</label>\n<input id=\"email\" type=\"email\" />",
+    "snippet_lang": "html",
+    "integration_note": "Every input should have a label."
+  },
+  {
+    "external_id": "css-v2-01",
+    "language": "CSS",
+    "difficulty": 1,
+    "prompt": "Which property changes the text color?",
+    "options": [
+      "color",
+      "font-color",
+      "text-color",
+      "fill"
+    ],
+    "answer": "color",
+    "hints": [
+      "The name is short.",
+      "It is also used for icons using currentColor."
+    ],
+    "concept_tip": "The color property sets the text color.",
+    "snippet": "p {\n  color: tomato;\n}",
+    "snippet_lang": "css",
+    "integration_note": "Define colors as variables so the whole site can change at once."
+  },
+  {
+    "external_id": "css-v2-02",
+    "language": "CSS",
+    "difficulty": 1,
+    "prompt": "Which property adds space inside an element, between the content and the border?",
+    "options": [
+      "padding",
+      "margin",
+      "gap",
+      "spacing"
+    ],
+    "answer": "padding",
+    "hints": [
+      "Margin is outside the border.",
+      "Think of padding in a jacket."
+    ],
+    "concept_tip": "padding is inside the border, margin is outside.",
+    "snippet": ".card {\n  padding: 16px;\n  margin: 8px;\n}",
+    "snippet_lang": "css",
+    "integration_note": "Use padding to make buttons and cards comfortable to tap."
+  },
+  {
+    "external_id": "css-v2-03",
+    "language": "CSS",
+    "difficulty": 1,
+    "prompt": "Which selector targets the element with id=\"menu\"?",
+    "options": [
+      "#menu",
+      ".menu",
+      "menu",
+      "*menu"
+    ],
+    "answer": "#menu",
+    "hints": [
+      "IDs use a hash symbol.",
+      "Classes use a dot."
+    ],
+    "concept_tip": "#name selects by id, .name selects by class, name selects by tag.",
+    "snippet": "#menu {\n  background: navy;\n}",
+    "snippet_lang": "css",
+    "integration_note": "Use classes for styling; ids should be unique."
+  },
+  {
+    "external_id": "css-v2-04",
+    "language": "CSS",
+    "difficulty": 2,
+    "prompt": "Which display value turns an element into a flex container?",
+    "options": [
+      "flex",
+      "block",
+      "inline",
+      "table-cell"
+    ],
+    "answer": "flex",
+    "hints": [
+      "Used for one-dimensional layouts.",
+      "Its children become flex items."
+    ],
+    "concept_tip": "display: flex lays children in a row (or column) with easy alignment.",
+    "snippet": ".nav {\n  display: flex;\n  gap: 12px;\n}",
+    "snippet_lang": "css",
+    "integration_note": "Flexbox is perfect for menus and toolbars."
+  },
+  {
+    "external_id": "css-v2-05",
+    "language": "CSS",
+    "difficulty": 2,
+    "prompt": "What does margin: 0 auto; do on a block element with a set width?",
+    "options": [
+      "Centers it horizontally",
+      "Centers it vertically",
+      "Removes its border",
+      "Hides it"
+    ],
+    "answer": "Centers it horizontally",
+    "hints": [
+      "The first value is top/bottom.",
+      "auto shares the leftover space left and right."
+    ],
+    "concept_tip": "With a fixed width, auto left and right margins center the block.",
+    "snippet": ".page {\n  width: 800px;\n  margin: 0 auto;\n}",
+    "snippet_lang": "css",
+    "integration_note": "Combine with max-width to keep layouts readable on large screens."
+  },
+  {
+    "external_id": "css-v2-06",
+    "language": "CSS",
+    "difficulty": 2,
+    "prompt": "Which unit is relative to the root element's font size?",
+    "options": [
+      "rem",
+      "em",
+      "px",
+      "pt"
+    ],
+    "answer": "rem",
+    "hints": [
+      "The r stands for root.",
+      "em depends on the parent."
+    ],
+    "concept_tip": "1rem equals the font size of <html> (usually 16px). It scales with user settings.",
+    "snippet": "html { font-size: 16px; }\nh1 { font-size: 2rem; } /* 32px */",
+    "snippet_lang": "css",
+    "integration_note": "Use rem for font sizes so users can enlarge text."
+  },
+  {
+    "external_id": "css-v2-07",
+    "language": "CSS",
+    "difficulty": 3,
+    "prompt": "Which rule applies styles only on screens 600px wide or smaller?",
+    "options": [
+      "@media (max-width: 600px)",
+      "@screen (width: 600px)",
+      "@responsive 600px",
+      "@if (width < 600px)"
+    ],
+    "answer": "@media (max-width: 600px)",
+    "hints": [
+      "It starts with @media.",
+      "max-width means up to that width."
+    ],
+    "concept_tip": "Media queries apply CSS only when a condition is true, which is how responsive design works.",
+    "snippet": "@media (max-width: 600px) {\n  .menu { flex-direction: column; }\n}",
+    "snippet_lang": "css",
+    "integration_note": "Design for mobile first, then add wider rules."
+  },
+  {
+    "external_id": "css-v2-08",
+    "language": "CSS",
+    "difficulty": 3,
+    "prompt": "What does grid-template-columns: repeat(3, 1fr); create?",
+    "options": [
+      "Three equal-width columns",
+      "Three equal-height rows",
+      "One column three times wider",
+      "Three columns of 1px"
+    ],
+    "answer": "Three equal-width columns",
+    "hints": [
+      "fr means a fraction of free space.",
+      "repeat(3, …) repeats the track three times."
+    ],
+    "concept_tip": "1fr takes an equal share of available width. repeat(3, 1fr) gives three equal columns.",
+    "snippet": ".gallery {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 12px;\n}",
+    "snippet_lang": "css",
+    "integration_note": "Grid is ideal for galleries and dashboards."
+  },
+  {
+    "external_id": "js-v2-01",
+    "language": "JavaScript",
+    "difficulty": 1,
+    "prompt": "What does typeof \"hello\" return?",
+    "options": [
+      "\"string\"",
+      "\"text\"",
+      "\"char\"",
+      "\"String\""
+    ],
+    "answer": "\"string\"",
+    "hints": [
+      "Types are lowercase words.",
+      "It is not char; JavaScript has no char type."
+    ],
+    "concept_tip": "typeof returns a lowercase string naming the type: string, number, boolean, object, undefined, function.",
+    "snippet": "console.log(typeof \"hello\"); // \"string\"",
+    "snippet_lang": "javascript",
+    "integration_note": "Use typeof to check input before using it."
+  },
+  {
+    "external_id": "js-v2-02",
+    "language": "JavaScript",
+    "difficulty": 1,
+    "prompt": "Which method adds an item to the end of an array?",
+    "options": [
+      "push",
+      "pop",
+      "shift",
+      "append"
+    ],
+    "answer": "push",
+    "hints": [
+      "pop removes from the end.",
+      "Think of pushing onto a stack."
+    ],
+    "concept_tip": "push adds to the end, pop removes the last, unshift adds to the start, shift removes the first.",
+    "snippet": "const list = ['a', 'b'];\nlist.push('c');\nconsole.log(list); // ['a','b','c']",
+    "snippet_lang": "javascript",
+    "integration_note": "Remember push changes the original array."
+  },
+  {
+    "external_id": "js-v2-03",
+    "language": "JavaScript",
+    "difficulty": 1,
+    "prompt": "What is the result of 5 + \"5\" in JavaScript?",
+    "options": [
+      "\"55\"",
+      "10",
+      "NaN",
+      "An error"
+    ],
+    "answer": "\"55\"",
+    "hints": [
+      "One side is a string.",
+      "+ joins strings."
+    ],
+    "concept_tip": "If either side of + is a string, JavaScript joins them as text instead of adding.",
+    "snippet": "console.log(5 + \"5\"); // \"55\"\nconsole.log(5 + 5);   // 10",
+    "snippet_lang": "javascript",
+    "integration_note": "Convert with Number() before doing math on form input."
+  },
+  {
+    "external_id": "js-v2-04",
+    "language": "JavaScript",
+    "difficulty": 2,
+    "prompt": "Which array method returns a new array containing only the items that pass a test?",
+    "options": [
+      "filter",
+      "map",
+      "reduce",
+      "find"
+    ],
+    "answer": "filter",
+    "hints": [
+      "It keeps some items and drops others.",
+      "find returns only one item."
+    ],
+    "concept_tip": "filter returns a new array with items for which the callback returns true.",
+    "snippet": "const adults = [12, 18, 30].filter(age => age >= 18);\nconsole.log(adults); // [18, 30]",
+    "snippet_lang": "javascript",
+    "integration_note": "Use filter to build search results from a list."
+  },
+  {
+    "external_id": "js-v2-05",
+    "language": "JavaScript",
+    "difficulty": 2,
+    "prompt": "What does === check?",
+    "options": [
+      "That value and type are both equal",
+      "Only the value",
+      "Only the type",
+      "That both are objects"
+    ],
+    "answer": "That value and type are both equal",
+    "hints": [
+      "== converts types first.",
+      "=== does not convert."
+    ],
+    "concept_tip": "=== is strict equality: 5 === '5' is false, while 5 == '5' is true.",
+    "snippet": "console.log(5 === '5'); // false\nconsole.log(5 == '5');  // true",
+    "snippet_lang": "javascript",
+    "integration_note": "Prefer === to avoid surprising conversions."
+  },
+  {
+    "external_id": "js-v2-06",
+    "language": "JavaScript",
+    "difficulty": 2,
+    "prompt": "What does an async function always return?",
+    "options": [
+      "A Promise",
+      "A string",
+      "undefined",
+      "A callback"
+    ],
+    "answer": "A Promise",
+    "hints": [
+      "You can use await on the result.",
+      "Even return 5 becomes a resolved value inside it."
+    ],
+    "concept_tip": "async functions wrap their return value in a Promise, so callers use await or .then().",
+    "snippet": "async function getUser() {\n  return { name: 'Abel' };\n}\ngetUser().then(u => console.log(u.name));",
+    "snippet_lang": "javascript",
+    "integration_note": "Use async/await to make network code read top to bottom."
+  },
+  {
+    "external_id": "js-v2-07",
+    "language": "JavaScript",
+    "difficulty": 3,
+    "prompt": "What does console.log([1, 2, 3].map(n => n * 2)) print?",
+    "options": [
+      "[2, 4, 6]",
+      "[1, 2, 3]",
+      "6",
+      "[1, 4, 9]"
+    ],
+    "answer": "[2, 4, 6]",
+    "hints": [
+      "map transforms every item.",
+      "The original array is not changed."
+    ],
+    "concept_tip": "map returns a new array with the callback applied to each item.",
+    "snippet": "const doubled = [1, 2, 3].map(n => n * 2);\nconsole.log(doubled); // [2, 4, 6]",
+    "snippet_lang": "javascript",
+    "integration_note": "Use map to turn data into UI items."
+  },
+  {
+    "external_id": "js-v2-08",
+    "language": "JavaScript",
+    "difficulty": 3,
+    "prompt": "Inside a regular function called as obj.method(), what does this refer to?",
+    "options": [
+      "obj",
+      "The global object",
+      "The function itself",
+      "undefined always"
+    ],
+    "answer": "obj",
+    "hints": [
+      "Look at what is left of the dot.",
+      "Arrow functions behave differently."
+    ],
+    "concept_tip": "For a method call, this is the object before the dot. Arrow functions inherit this from where they were written.",
+    "snippet": "const user = {\n  name: 'Sara',\n  hi() { return 'Hi ' + this.name; }\n};\nconsole.log(user.hi()); // Hi Sara",
+    "snippet_lang": "javascript",
+    "integration_note": "Do not pass methods as callbacks without binding."
+  },
+  {
+    "external_id": "ts-v2-01",
+    "language": "TypeScript",
+    "difficulty": 1,
+    "prompt": "Which line declares a variable age of type number?",
+    "options": [
+      "let age: number = 20;",
+      "let age = number(20);",
+      "number age = 20;",
+      "let age <number> = 20;"
+    ],
+    "answer": "let age: number = 20;",
+    "hints": [
+      "The type comes after a colon.",
+      "The colon follows the name."
+    ],
+    "concept_tip": "TypeScript adds a : type after the variable name.",
+    "snippet": "let age: number = 20;\nage = 'twenty'; // error",
+    "snippet_lang": "typescript",
+    "integration_note": "Types catch mistakes before the code runs."
+  },
+  {
+    "external_id": "ts-v2-02",
+    "language": "TypeScript",
+    "difficulty": 1,
+    "prompt": "What does TypeScript compile to?",
+    "options": [
+      "JavaScript",
+      "C#",
+      "Python",
+      "Java"
+    ],
+    "answer": "JavaScript",
+    "hints": [
+      "Browsers cannot run TypeScript directly.",
+      "It is a superset of a popular web language."
+    ],
+    "concept_tip": "TypeScript is checked at build time and then compiled to plain JavaScript.",
+    "snippet": "// app.ts\nconst greet = (name: string) => `Hi ${name}`;\n// compiles to app.js",
+    "snippet_lang": "typescript",
+    "integration_note": "Run tsc or your bundler to build."
+  },
+  {
+    "external_id": "ts-v2-03",
+    "language": "TypeScript",
+    "difficulty": 1,
+    "prompt": "Which symbol marks a property as optional in an interface?",
+    "options": [
+      "?",
+      "!",
+      "*",
+      "#"
+    ],
+    "answer": "?",
+    "hints": [
+      "It goes after the property name.",
+      "It means the property may be missing."
+    ],
+    "concept_tip": "name?: string means name can be a string or not be provided at all.",
+    "snippet": "interface User {\n  id: number;\n  nickname?: string;\n}",
+    "snippet_lang": "typescript",
+    "integration_note": "Use optional properties for fields users may skip."
+  },
+  {
+    "external_id": "ts-v2-04",
+    "language": "TypeScript",
+    "difficulty": 2,
+    "prompt": "Which keyword can describe the shape of an object and exists only at compile time?",
+    "options": [
+      "interface",
+      "struct",
+      "shape",
+      "record"
+    ],
+    "answer": "interface",
+    "hints": [
+      "It is erased from the compiled JavaScript.",
+      "Classes also describe shapes but exist at runtime."
+    ],
+    "concept_tip": "interface describes the properties an object must have; it produces no JavaScript.",
+    "snippet": "interface Student {\n  name: string;\n  batch: number;\n}\nconst s: Student = { name: 'Eden', batch: 2016 };",
+    "snippet_lang": "typescript",
+    "integration_note": "Use interfaces for API response shapes."
+  },
+  {
+    "external_id": "ts-v2-05",
+    "language": "TypeScript",
+    "difficulty": 2,
+    "prompt": "What does the type string | number mean?",
+    "options": [
+      "Either a string or a number",
+      "A string followed by a number",
+      "A function from string to number",
+      "Both a string and a number at once"
+    ],
+    "answer": "Either a string or a number",
+    "hints": [
+      "The bar means or.",
+      "This is called a union type."
+    ],
+    "concept_tip": "A union type allows several possible types; narrow it with typeof before use.",
+    "snippet": "function show(id: string | number) {\n  if (typeof id === 'string') return id.toUpperCase();\n  return id.toFixed(0);\n}",
+    "snippet_lang": "typescript",
+    "integration_note": "Unions model values that can be in different forms."
+  },
+  {
+    "external_id": "ts-v2-06",
+    "language": "TypeScript",
+    "difficulty": 2,
+    "prompt": "What return type does a function have if it returns nothing?",
+    "options": [
+      "void",
+      "null",
+      "never",
+      "empty"
+    ],
+    "answer": "void",
+    "hints": [
+      "It is the opposite of returning a value.",
+      "console.log helpers often use it."
+    ],
+    "concept_tip": "void means the function does not return a useful value.",
+    "snippet": "function log(msg: string): void {\n  console.log(msg);\n}",
+    "snippet_lang": "typescript",
+    "integration_note": "Mark callbacks that return nothing with void."
+  },
+  {
+    "external_id": "ts-v2-07",
+    "language": "TypeScript",
+    "difficulty": 3,
+    "prompt": "Which return type fits a function that always throws an error?",
+    "options": [
+      "never",
+      "void",
+      "unknown",
+      "null"
+    ],
+    "answer": "never",
+    "hints": [
+      "It never reaches the end.",
+      "never means no value is ever returned."
+    ],
+    "concept_tip": "never is for functions that never finish normally, like ones that always throw.",
+    "snippet": "function fail(msg: string): never {\n  throw new Error(msg);\n}",
+    "snippet_lang": "typescript",
+    "integration_note": "never also helps make switch statements exhaustive."
+  },
+  {
+    "external_id": "ts-v2-08",
+    "language": "TypeScript",
+    "difficulty": 3,
+    "prompt": "Which type means 'any value, but you must check it before using it'?",
+    "options": [
+      "unknown",
+      "any",
+      "never",
+      "void"
+    ],
+    "answer": "unknown",
+    "hints": [
+      "any turns checks off; this one keeps them.",
+      "Use it for data from outside your program."
+    ],
+    "concept_tip": "unknown is the safe version of any. You must narrow it before using it.",
+    "snippet": "function parse(input: unknown) {\n  if (typeof input === 'string') return input.length;\n  return 0;\n}",
+    "snippet_lang": "typescript",
+    "integration_note": "Use unknown for JSON from the network."
+  },
+  {
+    "external_id": "node-v2-01",
+    "language": "Node.js",
+    "difficulty": 1,
+    "prompt": "Which command installs the packages listed in package.json?",
+    "options": [
+      "npm install",
+      "npm start",
+      "npm run",
+      "node install"
+    ],
+    "answer": "npm install",
+    "hints": [
+      "It downloads into node_modules.",
+      "It reads the dependencies list."
+    ],
+    "concept_tip": "npm install reads package.json and downloads dependencies into node_modules.",
+    "snippet": "$ npm install\n$ npm start",
+    "snippet_lang": "javascript",
+    "integration_note": "Run it after cloning any Node project."
+  },
+  {
+    "external_id": "node-v2-02",
+    "language": "Node.js",
+    "difficulty": 1,
+    "prompt": "Which built-in module reads and writes files?",
+    "options": [
+      "fs",
+      "http",
+      "path",
+      "os"
+    ],
+    "answer": "fs",
+    "hints": [
+      "The name is short for file system.",
+      "http is for servers."
+    ],
+    "concept_tip": "fs (file system) can read, write, rename and delete files.",
+    "snippet": "import { readFile } from 'node:fs/promises';\nconst text = await readFile('notes.txt', 'utf8');",
+    "snippet_lang": "javascript",
+    "integration_note": "Prefer the promise version (fs/promises)."
+  },
+  {
+    "external_id": "node-v2-03",
+    "language": "Node.js",
+    "difficulty": 1,
+    "prompt": "What does require('express') do in CommonJS?",
+    "options": [
+      "Loads the express module",
+      "Installs express",
+      "Starts a server",
+      "Deletes express"
+    ],
+    "answer": "Loads the express module",
+    "hints": [
+      "Install and load are different steps.",
+      "It returns what the module exports."
+    ],
+    "concept_tip": "require loads a module that is already installed, so you must run npm install express first.",
+    "snippet": "const express = require('express');\nconst app = express();",
+    "snippet_lang": "javascript",
+    "integration_note": "Modern code often uses import instead."
+  },
+  {
+    "external_id": "node-v2-04",
+    "language": "Node.js",
+    "difficulty": 2,
+    "prompt": "Which file lists a Node project's dependencies and scripts?",
+    "options": [
+      "package.json",
+      "index.js",
+      "node_modules",
+      "README.md"
+    ],
+    "answer": "package.json",
+    "hints": [
+      "It is JSON.",
+      "npm reads it."
+    ],
+    "concept_tip": "package.json stores the name, version, scripts and dependencies.",
+    "snippet": "{\n  \"name\": \"club-bot\",\n  \"scripts\": { \"start\": \"node index.js\" }\n}",
+    "snippet_lang": "javascript",
+    "integration_note": "Commit package.json but not node_modules."
+  },
+  {
+    "external_id": "node-v2-05",
+    "language": "Node.js",
+    "difficulty": 2,
+    "prompt": "What does process.env.PORT read?",
+    "options": [
+      "An environment variable named PORT",
+      "A command-line flag",
+      "A file named PORT",
+      "The computer's open ports"
+    ],
+    "answer": "An environment variable named PORT",
+    "hints": [
+      "Hosts like Vercel and Render set it.",
+      "It is outside your code."
+    ],
+    "concept_tip": "process.env holds environment variables, used for settings and secrets.",
+    "snippet": "const port = process.env.PORT || 3000;\napp.listen(port);",
+    "snippet_lang": "javascript",
+    "integration_note": "Never hard-code passwords; read them from env."
+  },
+  {
+    "external_id": "node-v2-06",
+    "language": "Node.js",
+    "difficulty": 2,
+    "prompt": "In Express, what does app.use(express.json()) do?",
+    "options": [
+      "Parses JSON request bodies",
+      "Sends JSON responses",
+      "Validates JSON files",
+      "Starts the server"
+    ],
+    "answer": "Parses JSON request bodies",
+    "hints": [
+      "Without it, req.body is undefined.",
+      "It is middleware."
+    ],
+    "concept_tip": "The JSON middleware converts a JSON request body into req.body.",
+    "snippet": "app.use(express.json());\napp.post('/login', (req, res) => {\n  res.json({ name: req.body.name });\n});",
+    "snippet_lang": "javascript",
+    "integration_note": "Add it before your routes."
+  },
+  {
+    "external_id": "node-v2-07",
+    "language": "Node.js",
+    "difficulty": 3,
+    "prompt": "Why is fs.readFileSync usually avoided inside a request handler?",
+    "options": [
+      "It blocks the event loop while it reads",
+      "It cannot read text",
+      "It needs admin rights",
+      "It works only once"
+    ],
+    "answer": "It blocks the event loop while it reads",
+    "hints": [
+      "Other users have to wait.",
+      "Node runs your JavaScript on one thread."
+    ],
+    "concept_tip": "Synchronous calls stop all other requests until they finish. Use async versions in servers.",
+    "snippet": "// bad\nconst data = fs.readFileSync('big.json');\n// good\nconst data2 = await fs.promises.readFile('big.json');",
+    "snippet_lang": "javascript",
+    "integration_note": "Sync calls are fine in startup scripts."
+  },
+  {
+    "external_id": "node-v2-08",
+    "language": "Node.js",
+    "difficulty": 3,
+    "prompt": "What does the Node.js event loop allow?",
+    "options": [
+      "Handling many I/O operations without waiting on each",
+      "Using several CPU cores by default",
+      "Compiling TypeScript",
+      "Skipping garbage collection"
+    ],
+    "answer": "Handling many I/O operations without waiting on each",
+    "hints": [
+      "It is why Node can serve many users at once.",
+      "Slow I/O runs in the background."
+    ],
+    "concept_tip": "Node starts I/O work, keeps running other code, and runs callbacks when results arrive.",
+    "snippet": "setTimeout(() => console.log('later'), 0);\nconsole.log('first');\n// first, then later",
+    "snippet_lang": "javascript",
+    "integration_note": "Avoid long CPU loops; they block the loop."
+  },
+  {
+    "external_id": "sql-v2-01",
+    "language": "SQL",
+    "difficulty": 1,
+    "prompt": "Which statement reads rows from a table?",
+    "options": [
+      "SELECT",
+      "GET",
+      "READ",
+      "FETCH"
+    ],
+    "answer": "SELECT",
+    "hints": [
+      "It starts every query.",
+      "It is followed by columns."
+    ],
+    "concept_tip": "SELECT chooses columns to return from a table.",
+    "snippet": "SELECT name, batch_year\nFROM students;",
+    "snippet_lang": "sql",
+    "integration_note": "SELECT * returns every column; list only what you need."
+  },
+  {
+    "external_id": "sql-v2-02",
+    "language": "SQL",
+    "difficulty": 1,
+    "prompt": "Which clause filters rows?",
+    "options": [
+      "WHERE",
+      "FILTER",
+      "LIMIT",
+      "ORDER"
+    ],
+    "answer": "WHERE",
+    "hints": [
+      "It comes after FROM.",
+      "It holds a condition."
+    ],
+    "concept_tip": "WHERE keeps only rows that match the condition.",
+    "snippet": "SELECT * FROM students\nWHERE batch_year = 2016;",
+    "snippet_lang": "sql",
+    "integration_note": "Combine conditions with AND / OR."
+  },
+  {
+    "external_id": "sql-v2-03",
+    "language": "SQL",
+    "difficulty": 1,
+    "prompt": "Which keyword sorts the result?",
+    "options": [
+      "ORDER BY",
+      "SORT BY",
+      "GROUP BY",
+      "ARRANGE"
+    ],
+    "answer": "ORDER BY",
+    "hints": [
+      "Use DESC for biggest first.",
+      "It goes near the end of the query."
+    ],
+    "concept_tip": "ORDER BY sorts ascending by default; add DESC for descending.",
+    "snippet": "SELECT name, xp FROM students\nORDER BY xp DESC;",
+    "snippet_lang": "sql",
+    "integration_note": "Pair with LIMIT for top-N lists."
+  },
+  {
+    "external_id": "sql-v2-04",
+    "language": "SQL",
+    "difficulty": 2,
+    "prompt": "Which function counts rows?",
+    "options": [
+      "COUNT(*)",
+      "SUM(*)",
+      "TOTAL()",
+      "ROWS()"
+    ],
+    "answer": "COUNT(*)",
+    "hints": [
+      "It is an aggregate function.",
+      "It needs no column."
+    ],
+    "concept_tip": "COUNT(*) returns the number of rows in the group or table.",
+    "snippet": "SELECT COUNT(*) FROM students\nWHERE gender = 'female';",
+    "snippet_lang": "sql",
+    "integration_note": "Use COUNT for dashboards."
+  },
+  {
+    "external_id": "sql-v2-05",
+    "language": "SQL",
+    "difficulty": 2,
+    "prompt": "Which join returns only rows that match in both tables?",
+    "options": [
+      "INNER JOIN",
+      "LEFT JOIN",
+      "FULL JOIN",
+      "CROSS JOIN"
+    ],
+    "answer": "INNER JOIN",
+    "hints": [
+      "LEFT keeps all rows from the first table.",
+      "It uses ON to match keys."
+    ],
+    "concept_tip": "INNER JOIN keeps only matching pairs; LEFT JOIN keeps all rows from the left table.",
+    "snippet": "SELECT s.name, l.name\nFROM students s\nINNER JOIN languages l ON l.id = s.language_id;",
+    "snippet_lang": "sql",
+    "integration_note": "Always give the join an ON condition."
+  },
+  {
+    "external_id": "sql-v2-06",
+    "language": "SQL",
+    "difficulty": 2,
+    "prompt": "Which clause filters groups after GROUP BY?",
+    "options": [
+      "HAVING",
+      "WHERE",
+      "LIMIT",
+      "DISTINCT"
+    ],
+    "answer": "HAVING",
+    "hints": [
+      "WHERE runs before grouping.",
+      "Used with aggregates like COUNT."
+    ],
+    "concept_tip": "WHERE filters rows before grouping; HAVING filters the grouped results.",
+    "snippet": "SELECT batch_year, COUNT(*) AS n\nFROM students\nGROUP BY batch_year\nHAVING COUNT(*) > 10;",
+    "snippet_lang": "sql",
+    "integration_note": "Use HAVING with aggregate conditions."
+  },
+  {
+    "external_id": "sql-v2-07",
+    "language": "SQL",
+    "difficulty": 3,
+    "prompt": "What does a PRIMARY KEY guarantee?",
+    "options": [
+      "Each row has a unique, non-null identifier",
+      "The column is encrypted",
+      "The table is read-only",
+      "The column is sorted"
+    ],
+    "answer": "Each row has a unique, non-null identifier",
+    "hints": [
+      "Think of an ID number.",
+      "Other tables point to it."
+    ],
+    "concept_tip": "A primary key uniquely identifies each row and cannot be NULL.",
+    "snippet": "CREATE TABLE students (\n  id SERIAL PRIMARY KEY,\n  name TEXT NOT NULL\n);",
+    "snippet_lang": "sql",
+    "integration_note": "Other tables reference it with a FOREIGN KEY."
+  },
+  {
+    "external_id": "sql-v2-08",
+    "language": "SQL",
+    "difficulty": 3,
+    "prompt": "Why use parameterized queries ($1, ?) instead of joining strings?",
+    "options": [
+      "It prevents SQL injection",
+      "It makes every query twice as fast",
+      "It allows SELECT *",
+      "It removes the need for indexes"
+    ],
+    "answer": "It prevents SQL injection",
+    "hints": [
+      "User input becomes data, not code.",
+      "Never build SQL with +."
+    ],
+    "concept_tip": "Parameters are sent separately from the SQL text, so input cannot change the query.",
+    "snippet": "// unsafe\ndb.query(\"SELECT * FROM users WHERE name = '\" + name + \"'\");\n// safe\ndb.query('SELECT * FROM users WHERE name = $1', [name]);",
+    "snippet_lang": "sql",
+    "integration_note": "Use parameters in every query that includes user input."
+  },
+  {
+    "external_id": "react-v2-01",
+    "language": "React",
+    "difficulty": 1,
+    "prompt": "What is JSX?",
+    "options": [
+      "HTML-like markup written inside JavaScript",
+      "A CSS framework",
+      "A database",
+      "A testing tool"
+    ],
+    "answer": "HTML-like markup written inside JavaScript",
+    "hints": [
+      "It looks like HTML.",
+      "A compiler turns it into JavaScript."
+    ],
+    "concept_tip": "JSX lets you describe UI with tags in JavaScript. React turns it into function calls.",
+    "snippet": "function Hello() {\n  return <h1>Hello, club!</h1>;\n}",
+    "snippet_lang": "jsx",
+    "integration_note": "Components must return a single parent element."
+  },
+  {
+    "external_id": "react-v2-02",
+    "language": "React",
+    "difficulty": 1,
+    "prompt": "Which hook stores state in a function component?",
+    "options": [
+      "useState",
+      "useEffect",
+      "useMemo",
+      "useId"
+    ],
+    "answer": "useState",
+    "hints": [
+      "It returns a value and a setter.",
+      "Its name contains the word state."
+    ],
+    "concept_tip": "useState returns the current value and a function to update it.",
+    "snippet": "const [count, setCount] = useState(0);",
+    "snippet_lang": "jsx",
+    "integration_note": "Changing state re-renders the component."
+  },
+  {
+    "external_id": "react-v2-03",
+    "language": "React",
+    "difficulty": 1,
+    "prompt": "How do you pass data from a parent component to a child?",
+    "options": [
+      "Props",
+      "State",
+      "Refs",
+      "Routes"
+    ],
+    "answer": "Props",
+    "hints": [
+      "They look like HTML attributes.",
+      "They are read-only in the child."
+    ],
+    "concept_tip": "Props are inputs to a component, passed as attributes.",
+    "snippet": "<Badge level=\"Gold\" />\n\nfunction Badge({ level }) {\n  return <span>{level}</span>;\n}",
+    "snippet_lang": "jsx",
+    "integration_note": "Props flow down, never up."
+  },
+  {
+    "external_id": "react-v2-04",
+    "language": "React",
+    "difficulty": 2,
+    "prompt": "Which hook runs code after render, such as fetching data?",
+    "options": [
+      "useEffect",
+      "useState",
+      "useRef",
+      "useContext"
+    ],
+    "answer": "useEffect",
+    "hints": [
+      "It runs side effects.",
+      "The second argument is a dependency array."
+    ],
+    "concept_tip": "useEffect runs after React updates the screen, ideal for data fetching and subscriptions.",
+    "snippet": "useEffect(() => {\n  fetch('/api/me').then(r => r.json()).then(setUser);\n}, []);",
+    "snippet_lang": "jsx",
+    "integration_note": "Always list the values the effect uses in the array."
+  },
+  {
+    "external_id": "react-v2-05",
+    "language": "React",
+    "difficulty": 2,
+    "prompt": "Why does a list rendered with .map() need a key prop?",
+    "options": [
+      "It helps React track which items changed",
+      "It sets the CSS class",
+      "It makes items clickable",
+      "It sorts the list"
+    ],
+    "answer": "It helps React track which items changed",
+    "hints": [
+      "Keys must be unique among siblings.",
+      "Index keys can cause bugs when reordering."
+    ],
+    "concept_tip": "Keys let React match old and new items so it updates the right DOM nodes.",
+    "snippet": "{students.map(s => (\n  <li key={s.id}>{s.name}</li>\n))}",
+    "snippet_lang": "jsx",
+    "integration_note": "Use a stable id, not the array index."
+  },
+  {
+    "external_id": "react-v2-06",
+    "language": "React",
+    "difficulty": 2,
+    "prompt": "What happens when you call setCount(count + 1)?",
+    "options": [
+      "React re-renders with the new value",
+      "The page reloads",
+      "count changes immediately in the same function",
+      "Nothing until a refresh"
+    ],
+    "answer": "React re-renders with the new value",
+    "hints": [
+      "State updates are scheduled.",
+      "The next render sees the new value."
+    ],
+    "concept_tip": "Setting state asks React to re-render; the new value appears in the next render.",
+    "snippet": "<button onClick={() => setCount(count + 1)}>\n  Clicked {count} times\n</button>",
+    "snippet_lang": "jsx",
+    "integration_note": "Use setCount(c => c + 1) when you rely on the previous value."
+  },
+  {
+    "external_id": "react-v2-07",
+    "language": "React",
+    "difficulty": 3,
+    "prompt": "What does an empty dependency array, useEffect(fn, []), mean?",
+    "options": [
+      "Run once after the first render",
+      "Run on every render",
+      "Never run",
+      "Run before the first render"
+    ],
+    "answer": "Run once after the first render",
+    "hints": [
+      "Nothing in the array can change.",
+      "Commonly used for initial data loading."
+    ],
+    "concept_tip": "With [] the effect has no dependencies, so it runs after the first render only.",
+    "snippet": "useEffect(() => {\n  document.title = 'CodeClub';\n}, []);",
+    "snippet_lang": "jsx",
+    "integration_note": "Leaving out the array runs the effect on every render."
+  },
+  {
+    "external_id": "react-v2-08",
+    "language": "React",
+    "difficulty": 3,
+    "prompt": "Why should state never be changed directly (like items.push(x))?",
+    "options": [
+      "React may not notice the change and not re-render",
+      "JavaScript forbids it",
+      "It deletes the array",
+      "It only fails on mobile"
+    ],
+    "answer": "React may not notice the change and not re-render",
+    "hints": [
+      "React compares old and new references.",
+      "Create a new array instead."
+    ],
+    "concept_tip": "React detects changes when you give it a new value. Mutating the old one hides the change.",
+    "snippet": "// wrong\nitems.push(x); setItems(items);\n// right\nsetItems([...items, x]);",
+    "snippet_lang": "jsx",
+    "integration_note": "Copy arrays and objects before changing them."
+  },
+  {
+    "external_id": "net-v2-01",
+    "language": "Networking",
+    "difficulty": 1,
+    "prompt": "What does an IP address identify?",
+    "options": [
+      "A device on a network",
+      "A website's color",
+      "A password",
+      "A file name"
+    ],
+    "answer": "A device on a network",
+    "hints": [
+      "Think of a postal address.",
+      "Your phone gets one when it joins Wi-Fi."
+    ],
+    "concept_tip": "An IP address locates a device on a network so data knows where to go.",
+    "snippet": "$ ip addr\ninet 192.168.1.20/24",
+    "snippet_lang": "bash",
+    "integration_note": "Private ranges like 192.168.x.x work only inside your network."
+  },
+  {
+    "external_id": "net-v2-02",
+    "language": "Networking",
+    "difficulty": 1,
+    "prompt": "Which protocol loads web pages securely?",
+    "options": [
+      "HTTPS",
+      "FTP",
+      "SMTP",
+      "Telnet"
+    ],
+    "answer": "HTTPS",
+    "hints": [
+      "Look for the padlock in the browser.",
+      "The S means secure."
+    ],
+    "concept_tip": "HTTPS is HTTP wrapped in TLS encryption.",
+    "snippet": "$ curl -I https://example.com\nHTTP/2 200",
+    "snippet_lang": "bash",
+    "integration_note": "Use HTTPS for every site, especially login pages."
+  },
+  {
+    "external_id": "net-v2-03",
+    "language": "Networking",
+    "difficulty": 1,
+    "prompt": "What is the default port for HTTP?",
+    "options": [
+      "80",
+      "443",
+      "22",
+      "25"
+    ],
+    "answer": "80",
+    "hints": [
+      "HTTPS uses a different one.",
+      "It is a two-digit number."
+    ],
+    "concept_tip": "HTTP uses port 80 by default.",
+    "snippet": "http://example.com        → port 80\nhttps://example.com       → port 443",
+    "snippet_lang": "bash",
+    "integration_note": "Open only the ports you need on a server."
+  },
+  {
+    "external_id": "net-v2-04",
+    "language": "Networking",
+    "difficulty": 2,
+    "prompt": "What is the default port for HTTPS?",
+    "options": [
+      "443",
+      "80",
+      "21",
+      "53"
+    ],
+    "answer": "443",
+    "hints": [
+      "It is a three-digit number.",
+      "Caddy and Nginx listen here."
+    ],
+    "concept_tip": "HTTPS uses port 443 by default.",
+    "snippet": "$ sudo ufw allow 443",
+    "snippet_lang": "bash",
+    "integration_note": "Your VPS needs ports 80 and 443 open."
+  },
+  {
+    "external_id": "net-v2-05",
+    "language": "Networking",
+    "difficulty": 2,
+    "prompt": "Which device forwards packets between different networks?",
+    "options": [
+      "Router",
+      "Hub",
+      "Repeater",
+      "Patch panel"
+    ],
+    "answer": "Router",
+    "hints": [
+      "It connects your home to the internet.",
+      "It reads IP addresses."
+    ],
+    "concept_tip": "A router chooses where to send packets between networks.",
+    "snippet": "$ ip route\ndefault via 192.168.1.1",
+    "snippet_lang": "bash",
+    "integration_note": "Your default gateway is your router."
+  },
+  {
+    "external_id": "net-v2-06",
+    "language": "Networking",
+    "difficulty": 2,
+    "prompt": "What does DHCP do?",
+    "options": [
+      "Automatically assigns IP addresses to devices",
+      "Translates domain names",
+      "Encrypts traffic",
+      "Blocks malware"
+    ],
+    "answer": "Automatically assigns IP addresses to devices",
+    "hints": [
+      "It is why you rarely type an IP on Wi-Fi.",
+      "The router usually runs it."
+    ],
+    "concept_tip": "DHCP hands out IP addresses, gateways and DNS servers when a device joins.",
+    "snippet": "$ ip addr show wlan0",
+    "snippet_lang": "bash",
+    "integration_note": "Static addresses are used for servers."
+  },
+  {
+    "external_id": "net-v2-07",
+    "language": "Networking",
+    "difficulty": 3,
+    "prompt": "Which protocol is connection-oriented and guarantees ordered delivery?",
+    "options": [
+      "TCP",
+      "UDP",
+      "ICMP",
+      "ARP"
+    ],
+    "answer": "TCP",
+    "hints": [
+      "Web pages need every byte.",
+      "UDP skips these checks for speed."
+    ],
+    "concept_tip": "TCP sets up a connection, numbers packets and resends lost ones. UDP is faster but unreliable.",
+    "snippet": "TCP: web, email, SSH\nUDP: video calls, DNS, games",
+    "snippet_lang": "bash",
+    "integration_note": "Choose UDP only when speed matters more than perfect delivery."
+  },
+  {
+    "external_id": "net-v2-08",
+    "language": "Networking",
+    "difficulty": 3,
+    "prompt": "What does a /24 subnet mask (255.255.255.0) mean?",
+    "options": [
+      "The first 24 bits identify the network",
+      "The network has 24 devices",
+      "24 ports are open",
+      "The speed limit is 24 Mbps"
+    ],
+    "answer": "The first 24 bits identify the network",
+    "hints": [
+      "The number counts network bits.",
+      "It leaves 8 bits for hosts."
+    ],
+    "concept_tip": "/24 means 24 network bits and 8 host bits, so 256 addresses (254 usable).",
+    "snippet": "192.168.1.0/24\nhosts: 192.168.1.1 – 192.168.1.254",
+    "snippet_lang": "bash",
+    "integration_note": "Subnets keep networks organised and secure."
+  },
+  {
+    "external_id": "bash-v2-01",
+    "language": "Linux/Bash",
+    "difficulty": 1,
+    "prompt": "Which command lists the files in a directory?",
+    "options": [
+      "ls",
+      "cd",
+      "pwd",
+      "cat"
+    ],
+    "answer": "ls",
+    "hints": [
+      "Short for list.",
+      "cat shows file content."
+    ],
+    "concept_tip": "ls lists files. Add -l for details and -a for hidden files.",
+    "snippet": "$ ls -la",
+    "snippet_lang": "bash",
+    "integration_note": "Combine flags like -la."
+  },
+  {
+    "external_id": "bash-v2-02",
+    "language": "Linux/Bash",
+    "difficulty": 1,
+    "prompt": "Which command prints the current directory?",
+    "options": [
+      "pwd",
+      "cd",
+      "ls",
+      "dir"
+    ],
+    "answer": "pwd",
+    "hints": [
+      "Short for print working directory.",
+      "It takes no arguments."
+    ],
+    "concept_tip": "pwd shows the full path of where you are.",
+    "snippet": "$ pwd\n/home/student/projects",
+    "snippet_lang": "bash",
+    "integration_note": "Use it when you get lost in the terminal."
+  },
+  {
+    "external_id": "bash-v2-03",
+    "language": "Linux/Bash",
+    "difficulty": 1,
+    "prompt": "Which command creates a new directory?",
+    "options": [
+      "mkdir",
+      "touch",
+      "rmdir",
+      "mv"
+    ],
+    "answer": "mkdir",
+    "hints": [
+      "Short for make directory.",
+      "touch creates files."
+    ],
+    "concept_tip": "mkdir creates folders; -p creates parent folders too.",
+    "snippet": "$ mkdir -p project/src",
+    "snippet_lang": "bash",
+    "integration_note": "Use -p to avoid errors if it already exists."
+  },
+  {
+    "external_id": "bash-v2-04",
+    "language": "Linux/Bash",
+    "difficulty": 2,
+    "prompt": "Which command changes file permissions?",
+    "options": [
+      "chmod",
+      "chown",
+      "chgrp",
+      "passwd"
+    ],
+    "answer": "chmod",
+    "hints": [
+      "Short for change mode.",
+      "chown changes the owner."
+    ],
+    "concept_tip": "chmod sets who can read, write or execute a file.",
+    "snippet": "$ chmod +x deploy.sh",
+    "snippet_lang": "bash",
+    "integration_note": "Make scripts executable before running them."
+  },
+  {
+    "external_id": "bash-v2-05",
+    "language": "Linux/Bash",
+    "difficulty": 2,
+    "prompt": "What does the pipe | do in cat log.txt | grep error?",
+    "options": [
+      "Sends one command's output into the next",
+      "Saves output to a file",
+      "Runs commands in the background",
+      "Deletes the file"
+    ],
+    "answer": "Sends one command's output into the next",
+    "hints": [
+      "It chains commands.",
+      "The output of cat becomes the input of grep."
+    ],
+    "concept_tip": "A pipe connects the output of one command to the input of another.",
+    "snippet": "$ cat log.txt | grep error | wc -l",
+    "snippet_lang": "bash",
+    "integration_note": "Pipes let you build powerful one-liners."
+  },
+  {
+    "external_id": "bash-v2-06",
+    "language": "Linux/Bash",
+    "difficulty": 2,
+    "prompt": "Which command searches for text inside files?",
+    "options": [
+      "grep",
+      "find",
+      "locate",
+      "which"
+    ],
+    "answer": "grep",
+    "hints": [
+      "find searches file names.",
+      "It prints matching lines."
+    ],
+    "concept_tip": "grep prints lines that match a pattern; -r searches folders and -i ignores case.",
+    "snippet": "$ grep -ri \"password\" ./src",
+    "snippet_lang": "bash",
+    "integration_note": "Great for hunting secrets accidentally left in code."
+  },
+  {
+    "external_id": "bash-v2-07",
+    "language": "Linux/Bash",
+    "difficulty": 3,
+    "prompt": "What does chmod 755 script.sh give the owner?",
+    "options": [
+      "Read, write and execute",
+      "Read only",
+      "Write only",
+      "No access"
+    ],
+    "answer": "Read, write and execute",
+    "hints": [
+      "7 = 4 + 2 + 1.",
+      "The first digit is for the owner."
+    ],
+    "concept_tip": "Digits are owner, group, others. 7 = read+write+execute, 5 = read+execute.",
+    "snippet": "$ chmod 755 script.sh\n-rwxr-xr-x",
+    "snippet_lang": "bash",
+    "integration_note": "Never use 777 on a real server."
+  },
+  {
+    "external_id": "bash-v2-08",
+    "language": "Linux/Bash",
+    "difficulty": 3,
+    "prompt": "What does > do in echo hi > file.txt?",
+    "options": [
+      "Overwrites file.txt with the output",
+      "Appends to file.txt",
+      "Reads from file.txt",
+      "Pipes to another command"
+    ],
+    "answer": "Overwrites file.txt with the output",
+    "hints": [
+      "Use >> to add instead.",
+      "It redirects output."
+    ],
+    "concept_tip": "> sends output to a file and replaces its contents. >> appends.",
+    "snippet": "$ echo hi > file.txt\n$ echo again >> file.txt",
+    "snippet_lang": "bash",
+    "integration_note": "Double-check before using > on important files."
+  },
+  {
+    "external_id": "pysec-v2-01",
+    "language": "Python for Security",
+    "difficulty": 1,
+    "prompt": "Which Python library is commonly used to send HTTP requests?",
+    "options": [
+      "requests",
+      "flask",
+      "pandas",
+      "pytest"
+    ],
+    "answer": "requests",
+    "hints": [
+      "Its name is a plural noun.",
+      "Install it with pip."
+    ],
+    "concept_tip": "requests makes HTTP calls simple: get, post, headers, JSON.",
+    "snippet": "import requests\nr = requests.get('https://example.com')\nprint(r.status_code)",
+    "snippet_lang": "python",
+    "integration_note": "Always set a timeout on requests."
+  },
+  {
+    "external_id": "pysec-v2-02",
+    "language": "Python for Security",
+    "difficulty": 1,
+    "prompt": "Which function reads text typed by the user?",
+    "options": [
+      "input()",
+      "scan()",
+      "read()",
+      "get()"
+    ],
+    "answer": "input()",
+    "hints": [
+      "It pauses the program.",
+      "It returns a string."
+    ],
+    "concept_tip": "input() waits for the user to type and returns what they typed as text.",
+    "snippet": "name = input('Name: ')\nprint('Hello', name)",
+    "snippet_lang": "python",
+    "integration_note": "Treat user input as untrusted."
+  },
+  {
+    "external_id": "pysec-v2-03",
+    "language": "Python for Security",
+    "difficulty": 1,
+    "prompt": "Which module provides low-level network sockets?",
+    "options": [
+      "socket",
+      "json",
+      "time",
+      "random"
+    ],
+    "answer": "socket",
+    "hints": [
+      "Used to build clients and servers by hand.",
+      "Port scanners are built on it."
+    ],
+    "concept_tip": "The socket module connects to IP addresses and ports directly.",
+    "snippet": "import socket\ns = socket.socket()\ns.settimeout(1)\nprint(s.connect_ex(('127.0.0.1', 80)))",
+    "snippet_lang": "python",
+    "integration_note": "Only scan systems you own or have permission to test."
+  },
+  {
+    "external_id": "pysec-v2-04",
+    "language": "Python for Security",
+    "difficulty": 2,
+    "prompt": "Which built-in module computes SHA-256 hashes?",
+    "options": [
+      "hashlib",
+      "random",
+      "string",
+      "math"
+    ],
+    "answer": "hashlib",
+    "hints": [
+      "The name contains hash.",
+      "It also supports MD5 and SHA-1."
+    ],
+    "concept_tip": "hashlib creates fixed-size fingerprints of data.",
+    "snippet": "import hashlib\nprint(hashlib.sha256(b'hello').hexdigest())",
+    "snippet_lang": "python",
+    "integration_note": "Use hashes to verify file integrity."
+  },
+  {
+    "external_id": "pysec-v2-05",
+    "language": "Python for Security",
+    "difficulty": 2,
+    "prompt": "Which module should generate secure random tokens?",
+    "options": [
+      "secrets",
+      "random",
+      "math",
+      "time"
+    ],
+    "answer": "secrets",
+    "hints": [
+      "random is predictable.",
+      "It is designed for passwords and tokens."
+    ],
+    "concept_tip": "secrets uses the operating system's secure random generator.",
+    "snippet": "import secrets\nprint(secrets.token_urlsafe(16))",
+    "snippet_lang": "python",
+    "integration_note": "Use it for invite codes and reset links."
+  },
+  {
+    "external_id": "pysec-v2-06",
+    "language": "Python for Security",
+    "difficulty": 2,
+    "prompt": "What does the pattern 'with open(path) as f:' guarantee?",
+    "options": [
+      "The file is closed automatically",
+      "The file is encrypted",
+      "The file is read-only",
+      "The file is created in memory"
+    ],
+    "answer": "The file is closed automatically",
+    "hints": [
+      "It cleans up when the block ends.",
+      "Even if an error happens."
+    ],
+    "concept_tip": "A with block closes the file for you, even if an exception occurs.",
+    "snippet": "with open('log.txt') as f:\n    for line in f:\n        print(line.strip())",
+    "snippet_lang": "python",
+    "integration_note": "Prevents leaked file handles."
+  },
+  {
+    "external_id": "pysec-v2-07",
+    "language": "Python for Security",
+    "difficulty": 3,
+    "prompt": "Why is subprocess.run(cmd, shell=True) with user input dangerous?",
+    "options": [
+      "It can allow command injection",
+      "It is too slow",
+      "It needs root",
+      "It disables Python"
+    ],
+    "answer": "It can allow command injection",
+    "hints": [
+      "The shell interprets special characters.",
+      "Input like ; rm -rf can be added."
+    ],
+    "concept_tip": "With shell=True, text is passed to the shell, so attackers can add extra commands.",
+    "snippet": "# unsafe\nsubprocess.run(f'ping {host}', shell=True)\n# safer\nsubprocess.run(['ping', '-c', '1', host])",
+    "snippet_lang": "python",
+    "integration_note": "Pass arguments as a list and validate input."
+  },
+  {
+    "external_id": "pysec-v2-08",
+    "language": "Python for Security",
+    "difficulty": 3,
+    "prompt": "Which approach stores passwords safely?",
+    "options": [
+      "Hash with a slow salted algorithm like bcrypt or argon2",
+      "Store them in plain text",
+      "Encode them with base64",
+      "Hash with MD5 only"
+    ],
+    "answer": "Hash with a slow salted algorithm like bcrypt or argon2",
+    "hints": [
+      "Plain text and base64 can be read back.",
+      "Slow hashes make guessing expensive."
+    ],
+    "concept_tip": "bcrypt and argon2 add a salt and are deliberately slow, which protects against brute force.",
+    "snippet": "import bcrypt\nhashed = bcrypt.hashpw(b'pw123', bcrypt.gensalt())\nprint(bcrypt.checkpw(b'pw123', hashed))",
+    "snippet_lang": "python",
+    "integration_note": "Never store or log real passwords."
+  },
+  {
+    "external_id": "web-v2-01",
+    "language": "Web Security",
+    "difficulty": 1,
+    "prompt": "What does XSS stand for?",
+    "options": [
+      "Cross-Site Scripting",
+      "Extra Secure Socket",
+      "Cross-System Sharing",
+      "XML Style Sheet"
+    ],
+    "answer": "Cross-Site Scripting",
+    "hints": [
+      "It involves injecting script into pages.",
+      "The X replaces the word Cross."
+    ],
+    "concept_tip": "XSS lets attackers run their JavaScript in other users' browsers through unsafe input.",
+    "snippet": "// dangerous\nel.innerHTML = userInput;\n// safe\nel.textContent = userInput;",
+    "snippet_lang": "javascript",
+    "integration_note": "Use textContent instead of innerHTML for user data."
+  },
+  {
+    "external_id": "web-v2-02",
+    "language": "Web Security",
+    "difficulty": 1,
+    "prompt": "Which attack inserts malicious SQL into a query?",
+    "options": [
+      "SQL injection",
+      "Phishing",
+      "DDoS",
+      "Brute force"
+    ],
+    "answer": "SQL injection",
+    "hints": [
+      "The name says it.",
+      "Parameterized queries stop it."
+    ],
+    "concept_tip": "SQL injection tricks the database into running attacker-written commands.",
+    "snippet": "-- input: ' OR '1'='1\nSELECT * FROM users WHERE name = '' OR '1'='1';",
+    "snippet_lang": "javascript",
+    "integration_note": "Never build SQL from raw user input."
+  },
+  {
+    "external_id": "web-v2-03",
+    "language": "Web Security",
+    "difficulty": 1,
+    "prompt": "What does HTTPS add over HTTP?",
+    "options": [
+      "Encryption of the traffic",
+      "Faster loading",
+      "Bigger pages",
+      "Free hosting"
+    ],
+    "answer": "Encryption of the traffic",
+    "hints": [
+      "It protects data on the way.",
+      "The padlock in the browser."
+    ],
+    "concept_tip": "HTTPS encrypts data between browser and server, so others on the network cannot read it.",
+    "snippet": "https://  → encrypted\nhttp://   → readable by anyone on the path",
+    "snippet_lang": "javascript",
+    "integration_note": "Redirect all HTTP traffic to HTTPS."
+  },
+  {
+    "external_id": "web-v2-04",
+    "language": "Web Security",
+    "difficulty": 2,
+    "prompt": "What is CSRF?",
+    "options": [
+      "Tricking a logged-in user's browser into sending an unwanted request",
+      "Stealing a password with a keylogger",
+      "Flooding a server with traffic",
+      "Cracking hashes offline"
+    ],
+    "answer": "Tricking a logged-in user's browser into sending an unwanted request",
+    "hints": [
+      "Browsers send cookies automatically.",
+      "A hidden form on another site can trigger it."
+    ],
+    "concept_tip": "CSRF abuses the fact that browsers attach cookies to requests. Defend with SameSite cookies and CSRF tokens.",
+    "snippet": "Set-Cookie: session=abc; SameSite=Lax; Secure; HttpOnly",
+    "snippet_lang": "javascript",
+    "integration_note": "Require a token for state-changing requests."
+  },
+  {
+    "external_id": "web-v2-05",
+    "language": "Web Security",
+    "difficulty": 2,
+    "prompt": "Which cookie flag stops JavaScript from reading the cookie?",
+    "options": [
+      "HttpOnly",
+      "Secure",
+      "SameSite",
+      "Path"
+    ],
+    "answer": "HttpOnly",
+    "hints": [
+      "It protects against stolen sessions via XSS.",
+      "Secure only controls HTTPS."
+    ],
+    "concept_tip": "HttpOnly cookies are sent to the server but hidden from document.cookie.",
+    "snippet": "Set-Cookie: session=abc; HttpOnly; Secure",
+    "snippet_lang": "javascript",
+    "integration_note": "Set HttpOnly on all session cookies."
+  },
+  {
+    "external_id": "web-v2-06",
+    "language": "Web Security",
+    "difficulty": 2,
+    "prompt": "What is the best defence against XSS when showing user text?",
+    "options": [
+      "Escape or encode it before output",
+      "Hide the page",
+      "Use longer URLs",
+      "Disable cookies"
+    ],
+    "answer": "Escape or encode it before output",
+    "hints": [
+      "Turn < and > into harmless text.",
+      "Frameworks like React do this by default."
+    ],
+    "concept_tip": "Output encoding turns special characters into safe text so the browser does not run them.",
+    "snippet": "function esc(s) {\n  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');\n}",
+    "snippet_lang": "javascript",
+    "integration_note": "Never insert raw user input into HTML."
+  },
+  {
+    "external_id": "web-v2-07",
+    "language": "Web Security",
+    "difficulty": 3,
+    "prompt": "What does the Content-Security-Policy header do?",
+    "options": [
+      "Limits which sources a page may load scripts and resources from",
+      "Compresses responses",
+      "Sets the cookie lifetime",
+      "Blocks all POST requests"
+    ],
+    "answer": "Limits which sources a page may load scripts and resources from",
+    "hints": [
+      "It is an extra layer against XSS.",
+      "The server sends it as a header."
+    ],
+    "concept_tip": "CSP tells the browser which scripts, images and frames are allowed.",
+    "snippet": "Content-Security-Policy: default-src 'self'; script-src 'self'",
+    "snippet_lang": "javascript",
+    "integration_note": "Start strict and loosen only when needed."
+  },
+  {
+    "external_id": "web-v2-08",
+    "language": "Web Security",
+    "difficulty": 3,
+    "prompt": "Why should you not show detailed error messages (stack traces) to users?",
+    "options": [
+      "They can reveal internal details to attackers",
+      "They slow the site",
+      "They break HTML",
+      "Browsers block them"
+    ],
+    "answer": "They can reveal internal details to attackers",
+    "hints": [
+      "Paths, versions and queries help attackers.",
+      "Log details on the server instead."
+    ],
+    "concept_tip": "Detailed errors leak file paths, libraries and database information. Show a simple message and log the rest.",
+    "snippet": "app.use((err, req, res, next) => {\n  console.error(err);\n  res.status(500).json({ error: 'Something went wrong' });\n});",
+    "snippet_lang": "javascript",
+    "integration_note": "Return generic errors to the client."
+  },
+  {
+    "external_id": "crypto-v2-01",
+    "language": "Cryptography",
+    "difficulty": 1,
+    "prompt": "Which kind of encryption uses the same key to encrypt and decrypt?",
+    "options": [
+      "Symmetric",
+      "Asymmetric",
+      "Hashing",
+      "Salting"
+    ],
+    "answer": "Symmetric",
+    "hints": [
+      "Both sides share one secret key.",
+      "AES is an example."
+    ],
+    "concept_tip": "Symmetric encryption is fast and uses one shared key. The challenge is sharing the key safely.",
+    "snippet": "# one key does both jobs\nciphertext = encrypt(key, message)\nmessage = decrypt(key, ciphertext)",
+    "snippet_lang": "python",
+    "integration_note": "Used for encrypting files and traffic once keys are agreed."
+  },
+  {
+    "external_id": "crypto-v2-02",
+    "language": "Cryptography",
+    "difficulty": 1,
+    "prompt": "Which operation is one-way, so you cannot get the original back?",
+    "options": [
+      "Hashing",
+      "Encryption",
+      "Encoding",
+      "Compression"
+    ],
+    "answer": "Hashing",
+    "hints": [
+      "Encryption can be decrypted with a key.",
+      "Hashes are used for fingerprints."
+    ],
+    "concept_tip": "A hash turns data into a fixed-size fingerprint that cannot be reversed.",
+    "snippet": "import hashlib\nprint(hashlib.sha256(b'club').hexdigest())",
+    "snippet_lang": "python",
+    "integration_note": "Verify downloads by comparing hashes."
+  },
+  {
+    "external_id": "crypto-v2-03",
+    "language": "Cryptography",
+    "difficulty": 1,
+    "prompt": "Which of these is a hash function?",
+    "options": [
+      "SHA-256",
+      "AES",
+      "RSA",
+      "Caesar cipher"
+    ],
+    "answer": "SHA-256",
+    "hints": [
+      "The others encrypt data.",
+      "It outputs 256 bits."
+    ],
+    "concept_tip": "SHA-256 is a widely used cryptographic hash. AES and RSA are encryption algorithms.",
+    "snippet": "import hashlib\nprint(hashlib.sha256(b'abc').hexdigest())",
+    "snippet_lang": "python",
+    "integration_note": "Use SHA-256 or better for integrity checks."
+  },
+  {
+    "external_id": "crypto-v2-04",
+    "language": "Cryptography",
+    "difficulty": 2,
+    "prompt": "In public-key cryptography, which key do you share with others?",
+    "options": [
+      "The public key",
+      "The private key",
+      "Both keys",
+      "Neither"
+    ],
+    "answer": "The public key",
+    "hints": [
+      "The other one must stay secret.",
+      "Anyone can use it to send you data."
+    ],
+    "concept_tip": "Share your public key freely; keep the private key secret.",
+    "snippet": "ssh-keygen -t ed25519\n# share id_ed25519.pub, never id_ed25519",
+    "snippet_lang": "python",
+    "integration_note": "If a private key leaks, replace the pair."
+  },
+  {
+    "external_id": "crypto-v2-05",
+    "language": "Cryptography",
+    "difficulty": 2,
+    "prompt": "Which algorithm is a widely used symmetric cipher?",
+    "options": [
+      "AES",
+      "RSA",
+      "SHA-1",
+      "MD5"
+    ],
+    "answer": "AES",
+    "hints": [
+      "It protects Wi-Fi and disks.",
+      "SHA-1 and MD5 are hashes."
+    ],
+    "concept_tip": "AES (Advanced Encryption Standard) is the standard symmetric cipher.",
+    "snippet": "from cryptography.fernet import Fernet\nkey = Fernet.generate_key()\ntoken = Fernet(key).encrypt(b'secret')",
+    "snippet_lang": "python",
+    "integration_note": "Use well-tested libraries; never invent your own crypto."
+  },
+  {
+    "external_id": "crypto-v2-06",
+    "language": "Cryptography",
+    "difficulty": 2,
+    "prompt": "What is a salt in password hashing?",
+    "options": [
+      "Random data added to each password before hashing",
+      "A secret key kept in the browser",
+      "A second password",
+      "A type of encryption"
+    ],
+    "answer": "Random data added to each password before hashing",
+    "hints": [
+      "Two identical passwords get different hashes.",
+      "It defeats precomputed tables."
+    ],
+    "concept_tip": "A unique salt per password stops attackers from using rainbow tables.",
+    "snippet": "import bcrypt\nprint(bcrypt.gensalt())",
+    "snippet_lang": "python",
+    "integration_note": "Libraries like bcrypt add salts automatically."
+  },
+  {
+    "external_id": "crypto-v2-07",
+    "language": "Cryptography",
+    "difficulty": 3,
+    "prompt": "Why is MD5 not recommended for passwords?",
+    "options": [
+      "It is fast and has known collisions",
+      "It is too slow",
+      "It needs a license",
+      "It encrypts instead of hashing"
+    ],
+    "answer": "It is fast and has known collisions",
+    "hints": [
+      "Fast means easy to brute-force.",
+      "Different inputs can share a hash."
+    ],
+    "concept_tip": "MD5 is broken for security use and attackers can test billions of guesses per second.",
+    "snippet": "# avoid\nhashlib.md5(password).hexdigest()\n# prefer bcrypt or argon2",
+    "snippet_lang": "python",
+    "integration_note": "Use slow password hashes, not general-purpose ones."
+  },
+  {
+    "external_id": "crypto-v2-08",
+    "language": "Cryptography",
+    "difficulty": 3,
+    "prompt": "What does a digital signature prove?",
+    "options": [
+      "Who created a message and that it was not changed",
+      "That a message is secret",
+      "That a site is fast",
+      "That a file is small"
+    ],
+    "answer": "Who created a message and that it was not changed",
+    "hints": [
+      "It uses the sender's private key.",
+      "Anyone can check it with the public key."
+    ],
+    "concept_tip": "A signature gives authenticity and integrity, not secrecy.",
+    "snippet": "# sign with private key\nsig = private_key.sign(data)\n# verify with public key\npublic_key.verify(sig, data)",
+    "snippet_lang": "python",
+    "integration_note": "Git commits and software updates are often signed."
+  },
+  {
+    "external_id": "py-v2-01",
+    "language": "Python",
+    "difficulty": 1,
+    "prompt": "What does len(\"python\") return?",
+    "options": [
+      "6",
+      "5",
+      "7",
+      "python"
+    ],
+    "answer": "6",
+    "hints": [
+      "Count the letters.",
+      "len counts items."
+    ],
+    "concept_tip": "len returns the number of characters in a string or items in a list.",
+    "snippet": "print(len(\"python\"))  # 6",
+    "snippet_lang": "python",
+    "integration_note": "Check len(x) > 0 before using values."
+  },
+  {
+    "external_id": "py-v2-02",
+    "language": "Python",
+    "difficulty": 1,
+    "prompt": "Which symbol starts a comment in Python?",
+    "options": [
+      "#",
+      "//",
+      "--",
+      "/*"
+    ],
+    "answer": "#",
+    "hints": [
+      "Everything after it on the line is ignored.",
+      "JavaScript uses a different symbol."
+    ],
+    "concept_tip": "A # starts a comment that runs to the end of the line.",
+    "snippet": "# this is ignored\nprint('hi')",
+    "snippet_lang": "python",
+    "integration_note": "Write comments that explain why, not what."
+  },
+  {
+    "external_id": "py-v2-03",
+    "language": "Python",
+    "difficulty": 1,
+    "prompt": "What type is {'a': 1}?",
+    "options": [
+      "dict",
+      "list",
+      "set",
+      "tuple"
+    ],
+    "answer": "dict",
+    "hints": [
+      "It stores key-value pairs.",
+      "Curly braces with colons."
+    ],
+    "concept_tip": "A dictionary maps keys to values.",
+    "snippet": "user = {'name': 'Abel', 'xp': 120}\nprint(user['name'])",
+    "snippet_lang": "python",
+    "integration_note": "Use dicts for records."
+  },
+  {
+    "external_id": "py-v2-04",
+    "language": "Python",
+    "difficulty": 2,
+    "prompt": "What does [x*x for x in range(4)] produce?",
+    "options": [
+      "[0, 1, 4, 9]",
+      "[1, 4, 9, 16]",
+      "[0, 1, 2, 3]",
+      "[0, 2, 4, 6]"
+    ],
+    "answer": "[0, 1, 4, 9]",
+    "hints": [
+      "range(4) is 0, 1, 2, 3.",
+      "Each value is squared."
+    ],
+    "concept_tip": "A list comprehension builds a list from a loop in one line.",
+    "snippet": "print([x*x for x in range(4)])  # [0, 1, 4, 9]",
+    "snippet_lang": "python",
+    "integration_note": "Great for transforming data."
+  },
+  {
+    "external_id": "py-v2-05",
+    "language": "Python",
+    "difficulty": 2,
+    "prompt": "What does range(3) generate?",
+    "options": [
+      "0, 1, 2",
+      "1, 2, 3",
+      "0, 1, 2, 3",
+      "3"
+    ],
+    "answer": "0, 1, 2",
+    "hints": [
+      "It starts at zero.",
+      "The stop value is excluded."
+    ],
+    "concept_tip": "range(3) produces 0, 1 and 2.",
+    "snippet": "for i in range(3):\n    print(i)",
+    "snippet_lang": "python",
+    "integration_note": "Use range for counting loops."
+  },
+  {
+    "external_id": "py-v2-06",
+    "language": "Python",
+    "difficulty": 2,
+    "prompt": "Which keywords handle errors in Python?",
+    "options": [
+      "try / except",
+      "catch / throw",
+      "rescue",
+      "on error"
+    ],
+    "answer": "try / except",
+    "hints": [
+      "Risky code goes in the first block.",
+      "The second block handles the error."
+    ],
+    "concept_tip": "try runs code that might fail; except handles the failure.",
+    "snippet": "try:\n    n = int('abc')\nexcept ValueError:\n    print('Not a number')",
+    "snippet_lang": "python",
+    "integration_note": "Catch specific errors, not everything."
+  },
+  {
+    "external_id": "py-v2-07",
+    "language": "Python",
+    "difficulty": 3,
+    "prompt": "What does a Python decorator do?",
+    "options": [
+      "Wraps a function to add behavior",
+      "Defines a class",
+      "Imports a module",
+      "Declares a constant"
+    ],
+    "answer": "Wraps a function to add behavior",
+    "hints": [
+      "It is written with @ above a function.",
+      "Used for logging and caching."
+    ],
+    "concept_tip": "A decorator takes a function and returns an improved version.",
+    "snippet": "def shout(fn):\n    def wrap(*a):\n        return fn(*a).upper()\n    return wrap\n\n@shout\ndef hi(): return 'hi'",
+    "snippet_lang": "python",
+    "integration_note": "Frameworks use decorators for routes."
+  },
+  {
+    "external_id": "py-v2-08",
+    "language": "Python",
+    "difficulty": 3,
+    "prompt": "How does a list differ from a tuple?",
+    "options": [
+      "A list is mutable, a tuple is not",
+      "A list is faster to read",
+      "A tuple holds more items",
+      "A list cannot hold strings"
+    ],
+    "answer": "A list is mutable, a tuple is not",
+    "hints": [
+      "Can you change items after creating it?",
+      "Tuples use parentheses."
+    ],
+    "concept_tip": "Lists can be changed after creation; tuples cannot.",
+    "snippet": "nums = [1, 2]\nnums.append(3)\npoint = (4, 5)\n# point[0] = 1  -> error",
+    "snippet_lang": "python",
+    "integration_note": "Use tuples for fixed data like coordinates."
+  },
+  {
+    "external_id": "np-v2-01",
+    "language": "NumPy/Pandas",
+    "difficulty": 1,
+    "prompt": "Which library is used for fast numerical arrays?",
+    "options": [
+      "NumPy",
+      "Flask",
+      "Requests",
+      "Django"
+    ],
+    "answer": "NumPy",
+    "hints": [
+      "Its name stands for numerical Python.",
+      "Many data libraries build on it."
+    ],
+    "concept_tip": "NumPy provides n-dimensional arrays and fast math on them.",
+    "snippet": "import numpy as np\na = np.array([1, 2, 3])\nprint(a * 2)",
+    "snippet_lang": "python",
+    "integration_note": "Vectorised operations are much faster than loops."
+  },
+  {
+    "external_id": "np-v2-02",
+    "language": "NumPy/Pandas",
+    "difficulty": 1,
+    "prompt": "Which library provides the DataFrame?",
+    "options": [
+      "pandas",
+      "numpy",
+      "matplotlib",
+      "scipy"
+    ],
+    "answer": "pandas",
+    "hints": [
+      "A table with rows and columns.",
+      "Often imported as pd."
+    ],
+    "concept_tip": "A pandas DataFrame is a table of data with labeled columns.",
+    "snippet": "import pandas as pd\ndf = pd.read_csv('students.csv')",
+    "snippet_lang": "python",
+    "integration_note": "Use pandas to clean and analyse club data."
+  },
+  {
+    "external_id": "np-v2-03",
+    "language": "NumPy/Pandas",
+    "difficulty": 1,
+    "prompt": "How is NumPy normally imported?",
+    "options": [
+      "import numpy as np",
+      "import np",
+      "from numpy import all",
+      "use numpy"
+    ],
+    "answer": "import numpy as np",
+    "hints": [
+      "Everyone uses the same short alias.",
+      "np is short for numpy."
+    ],
+    "concept_tip": "The convention is import numpy as np.",
+    "snippet": "import numpy as np",
+    "snippet_lang": "python",
+    "integration_note": "Following conventions helps others read your code."
+  },
+  {
+    "external_id": "np-v2-04",
+    "language": "NumPy/Pandas",
+    "difficulty": 2,
+    "prompt": "What does df.head() show?",
+    "options": [
+      "The first 5 rows",
+      "The column names only",
+      "The last row",
+      "The data types"
+    ],
+    "answer": "The first 5 rows",
+    "hints": [
+      "A quick peek at the data.",
+      "Use df.tail() for the end."
+    ],
+    "concept_tip": "head() shows the first rows (5 by default).",
+    "snippet": "print(df.head())",
+    "snippet_lang": "python",
+    "integration_note": "Always inspect data before analysing."
+  },
+  {
+    "external_id": "np-v2-05",
+    "language": "NumPy/Pandas",
+    "difficulty": 2,
+    "prompt": "What is the shape of np.array([[1, 2, 3], [4, 5, 6]])?",
+    "options": [
+      "(2, 3)",
+      "(3, 2)",
+      "(6,)",
+      "(1, 6)"
+    ],
+    "answer": "(2, 3)",
+    "hints": [
+      "Shape is (rows, columns).",
+      "Two inner lists."
+    ],
+    "concept_tip": "This array has 2 rows and 3 columns.",
+    "snippet": "a = np.array([[1,2,3],[4,5,6]])\nprint(a.shape)  # (2, 3)",
+    "snippet_lang": "python",
+    "integration_note": "Check shapes when debugging errors."
+  },
+  {
+    "external_id": "np-v2-06",
+    "language": "NumPy/Pandas",
+    "difficulty": 2,
+    "prompt": "Which method drops rows with missing values?",
+    "options": [
+      "df.dropna()",
+      "df.fillna()",
+      "df.drop()",
+      "df.isnull()"
+    ],
+    "answer": "df.dropna()",
+    "hints": [
+      "NaN means missing.",
+      "fillna fills instead of dropping."
+    ],
+    "concept_tip": "dropna removes rows (or columns) that contain NaN.",
+    "snippet": "clean = df.dropna()",
+    "snippet_lang": "python",
+    "integration_note": "Decide whether to drop or fill missing data."
+  },
+  {
+    "external_id": "np-v2-07",
+    "language": "NumPy/Pandas",
+    "difficulty": 3,
+    "prompt": "What does np.mean(a, axis=0) compute for a 2D array?",
+    "options": [
+      "The mean of each column",
+      "The mean of each row",
+      "The overall mean",
+      "The median"
+    ],
+    "answer": "The mean of each column",
+    "hints": [
+      "axis=0 goes down the rows.",
+      "axis=1 goes across the columns."
+    ],
+    "concept_tip": "axis=0 collapses rows, giving one result per column.",
+    "snippet": "a = np.array([[1,2],[3,4]])\nprint(np.mean(a, axis=0))  # [2. 3.]",
+    "snippet_lang": "python",
+    "integration_note": "Axis confusion is a common bug."
+  },
+  {
+    "external_id": "np-v2-08",
+    "language": "NumPy/Pandas",
+    "difficulty": 3,
+    "prompt": "What does df.groupby('team')['score'].mean() return?",
+    "options": [
+      "The average score for each team",
+      "The total score",
+      "The highest score",
+      "All rows sorted"
+    ],
+    "answer": "The average score for each team",
+    "hints": [
+      "Group rows first, then summarise.",
+      "Mean means average."
+    ],
+    "concept_tip": "groupby splits data by a column; then you apply a summary like mean.",
+    "snippet": "print(df.groupby('team')['score'].mean())",
+    "snippet_lang": "python",
+    "integration_note": "Use groupby for summaries by category."
+  },
+  {
+    "external_id": "ml-v2-01",
+    "language": "Machine Learning",
+    "difficulty": 1,
+    "prompt": "Which type of learning uses labeled examples?",
+    "options": [
+      "Supervised learning",
+      "Unsupervised learning",
+      "Reinforcement learning",
+      "Random learning"
+    ],
+    "answer": "Supervised learning",
+    "hints": [
+      "Each example has the right answer attached.",
+      "Think of a teacher."
+    ],
+    "concept_tip": "In supervised learning, the model learns from inputs paired with correct outputs.",
+    "snippet": "X = [[1], [2], [3]]\ny = [2, 4, 6]  # labels",
+    "snippet_lang": "python",
+    "integration_note": "Most business ML problems are supervised."
+  },
+  {
+    "external_id": "ml-v2-02",
+    "language": "Machine Learning",
+    "difficulty": 1,
+    "prompt": "Predicting a house price is which kind of task?",
+    "options": [
+      "Regression",
+      "Classification",
+      "Clustering",
+      "Compression"
+    ],
+    "answer": "Regression",
+    "hints": [
+      "The answer is a number.",
+      "Not a category."
+    ],
+    "concept_tip": "Regression predicts a continuous number.",
+    "snippet": "from sklearn.linear_model import LinearRegression\nmodel = LinearRegression().fit(X, y)",
+    "snippet_lang": "python",
+    "integration_note": "Price, temperature and score are regression targets."
+  },
+  {
+    "external_id": "ml-v2-03",
+    "language": "Machine Learning",
+    "difficulty": 1,
+    "prompt": "Predicting whether an email is spam or not is which task?",
+    "options": [
+      "Classification",
+      "Regression",
+      "Clustering",
+      "Scaling"
+    ],
+    "answer": "Classification",
+    "hints": [
+      "The answer is one of a few categories.",
+      "Spam or not spam."
+    ],
+    "concept_tip": "Classification predicts a category label.",
+    "snippet": "from sklearn.linear_model import LogisticRegression\nmodel = LogisticRegression().fit(X, y)",
+    "snippet_lang": "python",
+    "integration_note": "Yes/no problems are classification."
+  },
+  {
+    "external_id": "ml-v2-04",
+    "language": "Machine Learning",
+    "difficulty": 2,
+    "prompt": "Why do we split data into training and test sets?",
+    "options": [
+      "To check performance on unseen data",
+      "To make training faster",
+      "To remove outliers",
+      "To reduce file size"
+    ],
+    "answer": "To check performance on unseen data",
+    "hints": [
+      "The model should not be graded on what it already saw.",
+      "Typically 80% / 20%."
+    ],
+    "concept_tip": "A test set simulates new data, showing whether the model generalises.",
+    "snippet": "from sklearn.model_selection import train_test_split\nX_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.2)",
+    "snippet_lang": "python",
+    "integration_note": "Never tune a model on the test set."
+  },
+  {
+    "external_id": "ml-v2-05",
+    "language": "Machine Learning",
+    "difficulty": 2,
+    "prompt": "What is overfitting?",
+    "options": [
+      "The model memorises training data and fails on new data",
+      "The model is too simple",
+      "The model trains too fast",
+      "The data is too small to load"
+    ],
+    "answer": "The model memorises training data and fails on new data",
+    "hints": [
+      "High training score, low test score.",
+      "It learns noise."
+    ],
+    "concept_tip": "An overfit model fits the training data too closely and performs poorly on new data.",
+    "snippet": "train accuracy: 99%\ntest accuracy:  62%  # overfitting",
+    "snippet_lang": "python",
+    "integration_note": "Use more data, simpler models or regularisation."
+  },
+  {
+    "external_id": "ml-v2-06",
+    "language": "Machine Learning",
+    "difficulty": 2,
+    "prompt": "Which library offers easy classic ML models like LogisticRegression?",
+    "options": [
+      "scikit-learn",
+      "Flask",
+      "Pillow",
+      "BeautifulSoup"
+    ],
+    "answer": "scikit-learn",
+    "hints": [
+      "Imported as sklearn.",
+      "A very common starting point."
+    ],
+    "concept_tip": "scikit-learn provides ready-made models, preprocessing and evaluation tools.",
+    "snippet": "from sklearn.ensemble import RandomForestClassifier\nmodel = RandomForestClassifier().fit(X_tr, y_tr)",
+    "snippet_lang": "python",
+    "integration_note": "Start with scikit-learn before deep learning."
+  },
+  {
+    "external_id": "ml-v2-07",
+    "language": "Machine Learning",
+    "difficulty": 3,
+    "prompt": "What does accuracy measure?",
+    "options": [
+      "The share of predictions that are correct",
+      "How fast the model trains",
+      "The number of features",
+      "The size of the model"
+    ],
+    "answer": "The share of predictions that are correct",
+    "hints": [
+      "Correct predictions divided by all predictions.",
+      "It can mislead with unbalanced data."
+    ],
+    "concept_tip": "accuracy = correct predictions / total predictions.",
+    "snippet": "from sklearn.metrics import accuracy_score\nprint(accuracy_score(y_te, model.predict(X_te)))",
+    "snippet_lang": "python",
+    "integration_note": "With rare events, also check precision and recall."
+  },
+  {
+    "external_id": "ml-v2-08",
+    "language": "Machine Learning",
+    "difficulty": 3,
+    "prompt": "What does k-means do?",
+    "options": [
+      "Groups data into k clusters",
+      "Predicts a number",
+      "Labels spam",
+      "Reduces images"
+    ],
+    "answer": "Groups data into k clusters",
+    "hints": [
+      "It is unsupervised.",
+      "You choose k."
+    ],
+    "concept_tip": "k-means assigns each point to the nearest of k cluster centres.",
+    "snippet": "from sklearn.cluster import KMeans\nlabels = KMeans(n_clusters=3).fit_predict(X)",
+    "snippet_lang": "python",
+    "integration_note": "Use clustering to discover groups without labels."
+  },
+  {
+    "external_id": "dl-v2-01",
+    "language": "Deep Learning",
+    "difficulty": 1,
+    "prompt": "What is a neural network made of?",
+    "options": [
+      "Layers of connected neurons",
+      "Tables of rows",
+      "Folders of files",
+      "Servers"
+    ],
+    "answer": "Layers of connected neurons",
+    "hints": [
+      "Inspired by the brain.",
+      "Layers pass numbers forward."
+    ],
+    "concept_tip": "A neural network stacks layers of simple units called neurons.",
+    "snippet": "import torch.nn as nn\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))",
+    "snippet_lang": "python",
+    "integration_note": "Depth means many layers."
+  },
+  {
+    "external_id": "dl-v2-02",
+    "language": "Deep Learning",
+    "difficulty": 1,
+    "prompt": "Which are popular deep learning frameworks?",
+    "options": [
+      "PyTorch and TensorFlow",
+      "Express and Koa",
+      "Django and Flask",
+      "React and Vue"
+    ],
+    "answer": "PyTorch and TensorFlow",
+    "hints": [
+      "Both are Python libraries.",
+      "Both can use a GPU."
+    ],
+    "concept_tip": "PyTorch and TensorFlow build and train neural networks.",
+    "snippet": "import torch\nprint(torch.__version__)",
+    "snippet_lang": "python",
+    "integration_note": "Pick one and learn it well."
+  },
+  {
+    "external_id": "dl-v2-03",
+    "language": "Deep Learning",
+    "difficulty": 1,
+    "prompt": "What is an epoch?",
+    "options": [
+      "One full pass over the training data",
+      "One neuron",
+      "One layer",
+      "One prediction"
+    ],
+    "answer": "One full pass over the training data",
+    "hints": [
+      "Training repeats many times.",
+      "Every sample is seen once."
+    ],
+    "concept_tip": "An epoch is a complete cycle through the training set.",
+    "snippet": "for epoch in range(10):\n    train_one_epoch()",
+    "snippet_lang": "python",
+    "integration_note": "Watch the loss across epochs."
+  },
+  {
+    "external_id": "dl-v2-04",
+    "language": "Deep Learning",
+    "difficulty": 2,
+    "prompt": "What does a loss function measure?",
+    "options": [
+      "How wrong the model's predictions are",
+      "How fast it runs",
+      "How many layers it has",
+      "The data size"
+    ],
+    "answer": "How wrong the model's predictions are",
+    "hints": [
+      "Training tries to make it small.",
+      "Lower is better."
+    ],
+    "concept_tip": "The loss gives a single number for the model's error.",
+    "snippet": "loss_fn = nn.MSELoss()\nloss = loss_fn(pred, target)",
+    "snippet_lang": "python",
+    "integration_note": "Pick a loss that fits the task."
+  },
+  {
+    "external_id": "dl-v2-05",
+    "language": "Deep Learning",
+    "difficulty": 2,
+    "prompt": "What does gradient descent do?",
+    "options": [
+      "Adjusts weights to reduce the loss",
+      "Adds more data",
+      "Deletes neurons",
+      "Draws charts"
+    ],
+    "answer": "Adjusts weights to reduce the loss",
+    "hints": [
+      "It walks downhill on the error.",
+      "The gradient shows the direction."
+    ],
+    "concept_tip": "Gradient descent updates the weights a little at a time in the direction that lowers the loss.",
+    "snippet": "optimizer.zero_grad()\nloss.backward()\noptimizer.step()",
+    "snippet_lang": "python",
+    "integration_note": "Optimisers like Adam are smarter versions."
+  },
+  {
+    "external_id": "dl-v2-06",
+    "language": "Deep Learning",
+    "difficulty": 2,
+    "prompt": "Which network type is commonly used for images?",
+    "options": [
+      "Convolutional neural network (CNN)",
+      "Linear regression",
+      "Decision stump",
+      "K-means"
+    ],
+    "answer": "Convolutional neural network (CNN)",
+    "hints": [
+      "It scans small patches.",
+      "Detects edges, then shapes."
+    ],
+    "concept_tip": "CNNs use filters that slide across an image to detect patterns.",
+    "snippet": "nn.Conv2d(in_channels=3, out_channels=16, kernel_size=3)",
+    "snippet_lang": "python",
+    "integration_note": "Use pretrained CNNs for small datasets."
+  },
+  {
+    "external_id": "dl-v2-07",
+    "language": "Deep Learning",
+    "difficulty": 3,
+    "prompt": "What does dropout do during training?",
+    "options": [
+      "Randomly turns off neurons to reduce overfitting",
+      "Removes bad data",
+      "Stops training forever",
+      "Increases the learning rate"
+    ],
+    "answer": "Randomly turns off neurons to reduce overfitting",
+    "hints": [
+      "The network cannot rely on one neuron.",
+      "It is switched off at test time."
+    ],
+    "concept_tip": "Dropout forces the network to learn robust features by randomly ignoring neurons.",
+    "snippet": "nn.Dropout(p=0.5)",
+    "snippet_lang": "python",
+    "integration_note": "Call model.eval() when predicting."
+  },
+  {
+    "external_id": "dl-v2-08",
+    "language": "Deep Learning",
+    "difficulty": 3,
+    "prompt": "What does the learning rate control?",
+    "options": [
+      "The size of each weight update step",
+      "The number of layers",
+      "The colour of the plots",
+      "The file format"
+    ],
+    "answer": "The size of each weight update step",
+    "hints": [
+      "Too big overshoots, too small is slow.",
+      "Typically 0.001 for Adam."
+    ],
+    "concept_tip": "A larger learning rate takes bigger steps; too large can make training unstable.",
+    "snippet": "optimizer = torch.optim.Adam(model.parameters(), lr=0.001)",
+    "snippet_lang": "python",
+    "integration_note": "Tune it first when training misbehaves."
   }
+
 ]
+
+
